@@ -1206,18 +1206,19 @@
       </section>
 
       <!-- ==========================================================================
-         6. WHY US SECTION (2-Column Layout: Timeline on Right, Stats on Left)
+         6. WHY US SECTION (Pixel-Perfect Timeline + Consultant Image + Full-Width Stats)
          ========================================================================== -->
       <section
         id="why-us"
-        class="py-6 md:py-10 bg-white relative overflow-hidden"
+        class="pt-2 pb-8 md:pt-4 md:pb-12 bg-white relative overflow-hidden"
       >
         <div class="max-w-7xl mx-auto px-4 md:px-8">
+          <!-- Top Row: Timeline (Right) + Image (Left) -->
           <div
-            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center"
+            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center mb-8 md:mb-12"
           >
-            <!-- Right Column (7 cols): Timeline (Exact Match to User Screenshot) -->
-            <div class="lg:col-span-7 reveal">
+            <!-- Right Column (6 cols): Timeline (Exact Match to User Reference) -->
+            <div class="lg:col-span-6 reveal">
               <!-- Heading -->
               <h2
                 class="text-3xl sm:text-4xl md:text-5xl font-black text-brand-900 font-heading tracking-tight mb-8"
@@ -1231,9 +1232,9 @@
                 <div class="why-us-timeline-line">
                   <!-- Arrowhead at the bottom of the line -->
                   <div
-                    class="absolute -bottom-2.5 left-1/2 -translate-x-1/2 text-[#287B3F] flex items-center justify-center"
+                    class="absolute -bottom-3 left-1/2 -translate-x-1/2 text-[#287B3F] flex items-center justify-center"
                   >
-                    <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                       <path d="M12 21l-7-7h4V3h6v11h4z" />
                     </svg>
                   </div>
@@ -1421,134 +1422,196 @@
               </div>
             </div>
 
-            <!-- Left Column (5 cols): Stats & Accreditation Block (على الشمال محطوط بطريقة كويسة) -->
-            <div class="lg:col-span-5 flex flex-col justify-center reveal">
-              <div
-                class="bg-[#F8FCF9] border border-[#D5E8DB] rounded-3xl p-5 sm:p-7 shadow-sm relative overflow-hidden"
-              >
-                <!-- Decorative Glow Element -->
+            <!-- Left Column (6 cols): Consultant Image Presentation (Larger Width & Height) -->
+            <div class="lg:col-span-6 flex flex-col justify-center reveal">
+              <div class="relative group h-full flex flex-col justify-center">
+                <!-- Glowing Ambient Backdrop Accent -->
                 <div
-                  class="absolute -top-12 -left-12 w-32 h-32 bg-[#287B3F]/10 rounded-full blur-2xl pointer-events-none"
+                  class="absolute -inset-2.5 bg-gradient-to-tr from-[#287B3F]/25 via-[#61ce70]/20 to-[#287B3F]/10 rounded-3xl blur-xl opacity-70 group-hover:opacity-100 transition-opacity duration-500 -z-10"
                 ></div>
 
-                <!-- Header Text & Badge -->
-                <div class="text-center mb-6 relative z-10">
+                <!-- Image Card Container -->
+                <div
+                  class="relative rounded-3xl overflow-hidden border border-[#D5E8DB] shadow-xl bg-[#F8FCF9]"
+                >
+                  <img
+                    src="assets/why-us-consultants.jpg"
+                    alt="فريق الخبراء والاستشاريين الاقتصاديين في دراسة وجدوى"
+                    class="w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] object-cover object-center group-hover:scale-102 transition-transform duration-500"
+                    loading="lazy"
+                  />
+
+                  <!-- Floating Glass Badge on Image -->
+                  <div
+                    class="absolute bottom-4 right-4 left-4 sm:left-auto bg-brand-900/85 backdrop-blur-md border border-white/20 text-white p-3 sm:px-4 sm:py-3 rounded-2xl flex items-center gap-3 shadow-xl"
+                  >
+                    <div
+                      class="w-10 h-10 rounded-xl bg-[#287B3F] text-white flex items-center justify-center flex-shrink-0 shadow-md"
+                    >
+                      <svg
+                        class="w-5 h-5 fill-none stroke-current"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <span
+                        class="block text-xs sm:text-sm font-bold text-[#61ce70]"
+                        >نخبة من الخبراء الاقتصاديين</span
+                      >
+                      <span class="block text-[11px] sm:text-xs text-white/80"
+                        >استشارات معتمدة لكبرى الصناديق التنموية</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Full-Width Block: Stats & Accreditation (شركة دراسة وجدوى) -->
+          <div class="w-full reveal mt-6 md:mt-10">
+            <div
+              class="bg-[#F8FCF9] border border-[#D5E8DB] rounded-3xl p-5 sm:p-8 shadow-sm relative overflow-hidden"
+            >
+              <!-- Decorative Glow Element -->
+              <div
+                class="absolute -top-12 -left-12 w-48 h-48 bg-[#287B3F]/10 rounded-full blur-3xl pointer-events-none"
+              ></div>
+
+              <!-- Header Text & Badge -->
+              <div
+                class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-7 relative z-10 pb-5 border-b border-[#D5E8DB]/60"
+              >
+                <div class="text-center sm:text-right">
                   <h3
-                    class="text-lg sm:text-xl md:text-2xl font-black text-brand-900 font-heading mb-3 leading-snug"
+                    class="text-xl sm:text-2xl md:text-3xl font-black text-brand-900 font-heading mb-1 leading-snug"
                   >
                     شركة دراسة و جدوى لدراسات الجدوى وخطط الأعمال
                   </h3>
+                  <p class="text-xs sm:text-sm text-gray-600 font-medium">
+                    سجل حافل بالإنجازات واعتمادات موثقة لدى كبرى الجهات
+                    الاستثمارية والتمويلية
+                  </p>
+                </div>
+                <div
+                  class="inline-flex items-center gap-2 bg-[#EAF7EE] text-[#287B3F] px-4 py-2 rounded-full text-xs sm:text-sm font-bold border border-[#287B3F]/20 shadow-2xs flex-shrink-0"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-[#287B3F] animate-ping"
+                  ></span>
+                  <span
+                    class="w-2 h-2 rounded-full bg-[#287B3F] -mr-3.5"
+                  ></span>
+                  <span>يتم التحديث باستمرار</span>
+                </div>
+              </div>
+
+              <!-- Stats Grid (6 Cards organized across full width) -->
+              <div
+                class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 relative z-10"
+              >
+                <!-- Card 1: 37 دولة نخدمها -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                >
                   <div
-                    class="inline-flex items-center gap-2 bg-[#EAF7EE] text-[#287B3F] px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold border border-[#287B3F]/20 shadow-2xs"
+                    class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
+                    data-counter="37"
                   >
-                    <span
-                      class="w-2 h-2 rounded-full bg-[#287B3F] animate-ping"
-                    ></span>
-                    <span
-                      class="w-2 h-2 rounded-full bg-[#287B3F] -mr-3.5"
-                    ></span>
-                    <span>يتم التحديث باستمرار</span>
+                    37
+                  </div>
+                  <div
+                    class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
+                  >
+                    دولة نخدمها
                   </div>
                 </div>
 
-                <!-- Stats Grid (6 Cards organized in a clean 2-column grid) -->
-                <div class="grid grid-cols-2 gap-3 sm:gap-3.5 relative z-10">
-                  <!-- Card 1: 37 دولة نخدمها -->
+                <!-- Card 2: 6712 عميل راضي -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                >
                   <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                    class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
+                    data-counter="6712"
                   >
-                    <div
-                      class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
-                      data-counter="37"
-                    >
-                      37
-                    </div>
-                    <div
-                      class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
-                    >
-                      دولة نخدمها
-                    </div>
+                    6712
                   </div>
+                  <div
+                    class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
+                  >
+                    عميل راضي
+                  </div>
+                </div>
 
-                  <!-- Card 2: 6712 عميل راضي -->
+                <!-- Card 3: 7215 طلب خدمة -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                >
                   <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                    class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
+                    data-counter="7215"
                   >
-                    <div
-                      class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
-                      data-counter="6712"
-                    >
-                      6712
-                    </div>
-                    <div
-                      class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
-                    >
-                      عميل راضي
-                    </div>
+                    7215
                   </div>
+                  <div
+                    class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
+                  >
+                    طلب خدمة
+                  </div>
+                </div>
 
-                  <!-- Card 3: 7215 طلب خدمة -->
+                <!-- Card 4: 6742 مشروع نفذ -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                >
                   <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                    class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
+                    data-counter="6742"
                   >
-                    <div
-                      class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
-                      data-counter="7215"
-                    >
-                      7215
-                    </div>
-                    <div
-                      class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
-                    >
-                      طلب خدمة
-                    </div>
+                    6742
                   </div>
+                  <div
+                    class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
+                  >
+                    مشروع نفذ
+                  </div>
+                </div>
 
-                  <!-- Card 4: 6742 مشروع نفذ -->
+                <!-- Card 5: 68 دراسة قطاعية -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                >
                   <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
+                    class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
+                    data-counter="68"
                   >
-                    <div
-                      class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
-                      data-counter="6742"
-                    >
-                      6742
-                    </div>
-                    <div
-                      class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
-                    >
-                      مشروع نفذ
-                    </div>
+                    68
                   </div>
+                  <div
+                    class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
+                  >
+                    دراسة قطاعية
+                  </div>
+                </div>
 
-                  <!-- Card 5: 68 مشروع نفذ -->
-                  <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-4 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex flex-col items-center justify-center group"
-                  >
-                    <div
-                      class="text-2xl sm:text-3xl font-black text-[#1E7238] font-heading tracking-tight group-hover:scale-105 transition-transform"
-                      data-counter="68"
-                    >
-                      68
-                    </div>
-                    <div
-                      class="text-xs sm:text-sm font-bold text-[#1E7238] mt-1 font-heading"
-                    >
-                      مشروع نفذ
-                    </div>
-                  </div>
-
-                  <!-- Card 6: ISO Accreditation Logo -->
-                  <div
-                    class="bg-white border border-[#D5E8DB] rounded-2xl p-3.5 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex items-center justify-center group"
-                  >
-                    <img
-                      src="assets/iso-logo.png"
-                      alt="ISO - International Organization for Standardization"
-                      class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
+                <!-- Card 6: ISO Accreditation Logo -->
+                <div
+                  class="bg-white border border-[#D5E8DB] rounded-2xl p-3.5 text-center shadow-md shadow-brand-900/5 hover:shadow-xl hover:-translate-y-1 hover:border-[#287B3F] transition-all duration-300 flex items-center justify-center group"
+                >
+                  <img
+                    src="assets/iso-logo.png"
+                    alt="ISO - International Organization for Standardization"
+                    class="h-9 sm:h-10 w-auto object-contain transition-transform group-hover:scale-105"
+                    loading="lazy"
+                  />
                 </div>
               </div>
             </div>
