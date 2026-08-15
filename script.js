@@ -28,12 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
     
     // 1. Sticky Header
-    if (scrollY > 80) {
+    if (scrollY > 10) {
       headerWrapper?.classList.add('is-sticky');
-      if (topBar) topBar.style.transform = 'translateY(-100%)';
     } else {
       headerWrapper?.classList.remove('is-sticky');
-      if (topBar) topBar.style.transform = 'translateY(0)';
     }
 
     // 2. Scroll-to-Top Visibility (> 400px scroll requirement)
