@@ -265,8 +265,8 @@ h6 {
 
 .sector-pill-btn {
   width: 100%;
-  padding: 8px 10px;
-  font-size: 13px;
+  padding: 6px 6px;
+  font-size: 11.5px;
   font-weight: 700;
   border-radius: 9999px;
   color: #1a1a1a;
@@ -280,6 +280,13 @@ h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (min-width: 480px) {
+  .sector-pill-btn {
+    padding: 7px 10px;
+    font-size: 13px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -426,6 +433,22 @@ h6 {
   .why-us-node {
     width: 54px;
     height: 54px;
+  }
+}
+
+.why-us-timeline-line {
+  position: absolute;
+  right: 23px;
+  top: 1.5rem;
+  bottom: 1rem;
+  width: 2.5px;
+  background-color: #287b3f;
+  z-index: 0;
+}
+
+@media (min-width: 768px) {
+  .why-us-timeline-line {
+    right: 26px;
   }
 }
 
