@@ -1,0 +1,430 @@
+/* ==========================================================================
+   دراسة وجدوى - Pixel Perfect Supplemental Styles for Tailwind CSS v3
+   ========================================================================== */
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Cairo",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  direction: rtl;
+  text-align: right;
+  overflow-x: hidden;
+  background-color: #f8faf8;
+  color: #1a1a1a;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family:
+    "Cairo",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  line-height: 1.35;
+}
+
+/* Active Nav Underline Animation */
+.nav-link-item {
+  position: relative;
+  color: white;
+}
+
+.nav-link-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  right: 50%;
+  width: 0;
+  height: 3px;
+  background-color: #f5821f;
+  border-radius: 9999px;
+  transition:
+    width 250ms ease,
+    right 250ms ease;
+}
+
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  width: 100%;
+  right: 0;
+}
+.nav-link-item:hover {
+  color: #f5821f;
+}
+.nav-link-item.active:hover {
+  color: #f5821f;
+}
+
+/* Floating WhatsApp Pulse Animation */
+@keyframes pulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulseRing 2.5s infinite;
+}
+
+/* Floating Y Animation */
+@keyframes floatY {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatY 3.5s ease-in-out infinite alternate;
+}
+
+/* Super Slider Continuous Marquee RTL (Seamless Full-Bleed Edge-to-Edge) */
+@keyframes marqueeScrollRTL {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(33.3333%);
+  }
+}
+
+.animate-super-slider {
+  display: flex;
+  width: max-content;
+  animation: marqueeScrollRTL 28s linear infinite;
+}
+
+.animate-super-slider:hover {
+  animation-play-state: paused;
+}
+
+/* Scroll Progress Ring SVG (Requirement 5.2) */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #287b3f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(40, 123, 63, 0.25);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease,
+    background-color 200ms ease,
+    color 200ms ease;
+  cursor: pointer;
+}
+
+.scroll-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-progress-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-ring-track {
+  stroke: #e3f0e6;
+  stroke-width: 4;
+  fill: transparent;
+}
+
+.progress-ring-circle {
+  stroke: #287b3f;
+  stroke-width: 4;
+  fill: transparent;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 157;
+  transition: stroke-dashoffset 10ms linear;
+}
+
+.scroll-top-btn:hover .progress-ring-circle {
+  stroke: #61ce70;
+}
+
+/* Process Timeline Line Animation */
+.process-svg-path {
+  stroke: #77aa42;
+  stroke-width: 4;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.8s ease-out;
+}
+
+/* Custom Hero Diagonal Chevron Shapes Background */
+.hero-chevron-bg {
+  background: linear-gradient(135deg, #1f6533 0%, #287b3f 50%, #1e5a2f 100%);
+  position: relative;
+}
+
+.hero-chevron-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.03) 0,
+    rgba(255, 255, 255, 0.03) 40px,
+    transparent 40px,
+    transparent 80px
+  );
+  pointer-events: none;
+}
+
+/* Scroll Reveal Effects */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 500ms ease,
+    transform 500ms ease;
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sector Pill Active Smooth Transition & Divider Styling with Swiper */
+.sector-switcher-pill-wrapper {
+  background-color: #ffffff;
+  padding: 4px 6px;
+  border-radius: 9999px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.sectorSwiper {
+  width: 100%;
+  border-radius: 9999px;
+}
+
+.sectorSwiper .swiper-slide {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+/* Vertical divider between slides */
+.sectorSwiper .swiper-slide::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  height: 56%;
+  width: 1px;
+  background-color: #d1d5db;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.sectorSwiper .swiper-slide.has-active::after,
+.sectorSwiper .swiper-slide.no-divider::after,
+.sectorSwiper .swiper-slide:has(.sector-pill-btn.active)::after {
+  opacity: 0;
+}
+
+.sector-pill-btn {
+  width: 100%;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 9999px;
+  color: #1a1a1a;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 640px) {
+  .sector-pill-btn {
+    padding: 8px 16px;
+    font-size: 14.5px;
+  }
+}
+
+.sector-pill-btn:hover:not(.active) {
+  color: #287b3f;
+  background-color: rgba(40, 123, 63, 0.06);
+}
+
+.sector-pill-btn.active {
+  background-color: #287b3f !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 14px rgba(40, 123, 63, 0.32);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Funding Body Tab Segmented Header Matching Reference Image */
+.funding-tab-btn {
+  background-color: #f1f3f2;
+  color: #4b5563;
+  font-weight: 700;
+  border-bottom: 3px solid #e2e5e3;
+  transition: all 250ms ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.funding-tab-btn:hover:not(.active) {
+  background-color: #e6e9e7;
+  color: #1f2937;
+}
+
+.funding-tab-btn.active {
+  background-color: #ffffff !important;
+  color: #111827 !important;
+  border-bottom: 3px solid #287b3f !important;
+  font-weight: 800 !important;
+}
+
+/* Funding Tab Panel Animation */
+.funding-tab-panel {
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 350ms ease,
+    transform 350ms ease;
+}
+
+.funding-tab-panel.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Testimonials Carousel Animations & Dot Styles */
+.testimonial-slide {
+  display: none;
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+  transition:
+    opacity 400ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-slide.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.carousel-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.35);
+  transition: all 300ms ease;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+}
+
+.carousel-dot:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.carousel-dot.active {
+  width: 1.5rem;
+  background-color: #ffffff;
+}
+
+/* Exact Service Card Styling Matching Image */
+.service-card-exact {
+  background-color: #e2f2e7;
+  border-radius: 1.25rem;
+  padding: 1.75rem 1.25rem;
+  transition:
+    transform 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.service-card-exact:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(40, 123, 63, 0.15);
+}
+
+/* Why-Us Timeline Glowing Nodes & Line Matching User Image */
+.why-us-node {
+  width: 48px;
+  height: 48px;
+  background: radial-gradient(circle, #287b3f 20%, #1c582d 100%);
+  border: 2.5px solid #61ce70;
+  box-shadow:
+    0 0 0 4px rgba(97, 206, 112, 0.35),
+    0 0 18px rgba(40, 123, 63, 0.45);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+  transition:
+    transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .why-us-node {
+    width: 54px;
+    height: 54px;
+  }
+}
