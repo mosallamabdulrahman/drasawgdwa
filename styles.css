@@ -265,8 +265,8 @@ h6 {
 
 .sector-pill-btn {
   width: 100%;
-  padding: 6px 6px;
-  font-size: 11.5px;
+  padding: 8px 10px;
+  font-size: 13px;
   font-weight: 700;
   border-radius: 9999px;
   color: #1a1a1a;
@@ -280,13 +280,6 @@ h6 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-}
-
-@media (min-width: 480px) {
-  .sector-pill-btn {
-    padding: 7px 10px;
-    font-size: 13px;
-  }
 }
 
 @media (min-width: 640px) {
@@ -436,22 +429,6 @@ h6 {
   }
 }
 
-.why-us-timeline-line {
-  position: absolute;
-  right: 23px;
-  top: 1.5rem;
-  bottom: 1rem;
-  width: 2.5px;
-  background-color: #287b3f;
-  z-index: 0;
-}
-
-@media (min-width: 768px) {
-  .why-us-timeline-line {
-    right: 26px;
-  }
-}
-
 /* ==========================================================================
    Hero Swiper Custom Slider Styles
    ========================================================================== */
@@ -465,7 +442,7 @@ h6 {
 .heroSwiper .swiper-pagination-bullets,
 .hero-pagination.swiper-pagination {
   position: absolute !important;
-  bottom: 54px !important;
+  bottom: 30px !important;
   left: 50% !important;
   right: auto !important;
   top: auto !important;
@@ -475,27 +452,27 @@ h6 {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 8px !important;
+  gap: 7px !important;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-@media (max-width: 640px) {
+@media (min-width: 640px) {
   .heroSwiper .hero-pagination,
   .heroSwiper .swiper-pagination-bullets,
   .hero-pagination.swiper-pagination {
-    bottom: 46px !important;
+    bottom: 32px !important;
   }
 }
 
 .heroSwiper .swiper-pagination-bullet,
 .hero-pagination .swiper-pagination-bullet {
-  width: 10px !important;
-  height: 10px !important;
-  background-color: rgba(255, 255, 255, 0.45) !important;
+  width: 8px !important;
+  height: 8px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
   opacity: 1 !important;
   border-radius: 9999px !important;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
   cursor: pointer !important;
   margin: 0 !important;
   border: none !important;
@@ -508,7 +485,73 @@ h6 {
 
 .heroSwiper .swiper-pagination-bullet-active,
 .hero-pagination .swiper-pagination-bullet-active {
-  width: 30px !important;
+  width: 24px !important;
   background-color: #f5821f !important;
-  box-shadow: 0 0 12px rgba(245, 130, 31, 0.75) !important;
+  box-shadow: 0 0 10px rgba(245, 130, 31, 0.7) !important;
 }
+
+/* ==========================================================================
+   Search Modal Custom Styling
+   ========================================================================== */
+.search-modal {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.search-category-pill {
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  outline: none;
+}
+
+.search-category-pill:hover {
+  background-color: rgba(40, 123, 63, 0.3);
+  color: #ffffff;
+  border-color: rgba(97, 206, 112, 0.4);
+}
+
+.search-category-pill.active {
+  background-color: #287b3f !important;
+  color: #ffffff !important;
+  border-color: #61ce70 !important;
+  box-shadow: 0 0 12px rgba(40, 123, 63, 0.5);
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.search-result-item:hover,
+.search-result-item.is-selected {
+  background-color: rgba(40, 123, 63, 0.25);
+  border-color: rgba(97, 206, 112, 0.4);
+  transform: translateX(-4px);
+}
+
+.search-highlight {
+  background-color: rgba(245, 130, 31, 0.35);
+  color: #ffb169;
+  padding: 0 3px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+
+
+

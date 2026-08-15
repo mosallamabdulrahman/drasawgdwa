@@ -119,29 +119,454 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------------
-     3. INLINE SEARCH OVERLAY
+     3. INTERACTIVE LIVE SEARCH OVERLAY & INDEXING
      -------------------------------------------------------------------------- */
   const searchTriggers = document.querySelectorAll('.search-trigger');
-  const searchModal = document.querySelector('.search-modal');
+  const searchModal = document.getElementById('searchModal') || document.querySelector('.search-modal');
   const searchCloseBtn = document.querySelector('.search-close-btn');
-  const searchInput = document.querySelector('.search-input');
+  const searchInput = document.getElementById('siteSearchInput') || document.querySelector('.search-input');
+  const searchClearBtn = document.getElementById('searchClearBtn');
+  const searchResultsList = document.getElementById('searchResultsList');
+  const searchCategoryPills = document.querySelectorAll('.search-category-pill');
+  const trendingItems = document.querySelectorAll('.trending-search-item');
+
+  let activeCategory = 'all';
+  let selectedResultIndex = -1;
+
+  // Search Data Index
+  const searchDataset = [
+    // الخدمات
+    {
+      title: 'دراسات الجدوى الاقتصادية الشاملة',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'دراسات تفصيلية معتمدة ومطابقة لاشتراطات البنوك وجهات التمويل والمستثمرين.',
+      target: '#services',
+      icon: 'document'
+    },
+    {
+      title: 'الاستشارات الإدارية وتطوير الأعمال',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'تطوير الهياكل التنظيمية وإعداد خطط التشغيل واستراتيجيات التوسع وإعادة الهيكلة.',
+      target: '#services',
+      icon: 'chart'
+    },
+    {
+      title: 'الاستشارات التسويقية وأبحاث السوق',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'تحليل حجم السوق، المنافسين، وسلوك المستهلكين وتحديد الحصص السوقية المستهدفة.',
+      target: '#services',
+      icon: 'trending'
+    },
+    {
+      title: 'التقييم والتحليل المالي ودراسات التكلفة',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'تحليلات الحساسية، نقطة التعادل، ومؤشرات الربحية والعائد الاستثماري (NPV & IRR).',
+      target: '#services',
+      icon: 'calc'
+    },
+    {
+      title: 'التخطيط الاستراتيجي ونماذج العمل',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'صياغة نموذج العمل التجاري BMC وخطط النمو والتنفيذ على المدى المتوسط والبعيد.',
+      target: '#services',
+      icon: 'compass'
+    },
+    {
+      title: 'إدارة وتحليل المخاطر الاستثمارية',
+      category: 'services',
+      categoryLabel: 'خدمة',
+      desc: 'تقييم المخاطر التشغيلية والمالية ووضع خطط الطوارئ وسيناريوهات التحوط.',
+      target: '#services',
+      icon: 'shield'
+    },
+
+    // القطاعات الاستثمارية
+    {
+      title: 'دراسة جدوى القطاع الزراعي والإنتاج الحيواني',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'مشاريع البيوت المحمية، الاستزراع السمكي، مزارع الدواجن، والتقنيات الزراعية الحديثة.',
+      target: '#sectors-detail',
+      icon: 'leaf'
+    },
+    {
+      title: 'دراسة جدوى القطاع السياحي والفندقي',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'الفنادق، المنتجعات، المقاهي والمطاعم الفاخرة، والمشاريع الترفيهية والسياحية بالمملكة.',
+      target: '#sectors-detail',
+      icon: 'building'
+    },
+    {
+      title: 'دراسة جدوى القطاع الطبي والرعاية الصحية',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'المجمعات الطبية المتخصصة، المستشفيات، مراكز العلاج الطبيعي، ومختبرات التحاليل.',
+      target: '#sectors-detail',
+      icon: 'heart'
+    },
+    {
+      title: 'دراسة جدوى القطاع الصناعي والتعديني',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'المصانع التحويلية، خطوط الإنتاج، صناعات البلاستيك والمعادن، والتعبئة والتغليف.',
+      target: '#sectors-detail',
+      icon: 'factory'
+    },
+    {
+      title: 'دراسة جدوى القطاع التقني والتجارة الإلكترونية',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'التطبيقات الذكية، منصات الخدمات السحابية SaaS، ومواقع التجارة الإلكترونية وحلول الذكاء الاصطناعي.',
+      target: '#sectors-detail',
+      icon: 'device'
+    },
+    {
+      title: 'دراسة جدوى القطاع التجاري ومراكز التوزيع',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'المراكز التجارية، المستودعات اللوجستية، سلاسل التجزئة، وإدارة سلاسل الإمداد.',
+      target: '#sectors-detail',
+      icon: 'shop'
+    },
+    {
+      title: 'دراسة جدوى القطاع التعليمي والتدريب',
+      category: 'sectors',
+      categoryLabel: 'قطاع استثماري',
+      desc: 'المدارس الأهلية، مراكز التدريب والتأهيل المهني، ورياض الأطفال والحضانات المتطورة.',
+      target: '#sectors-detail',
+      icon: 'academic'
+    },
+
+    // جهات التمويل
+    {
+      title: 'تمويل بنك التنمية الاجتماعية',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'مسارات تمويل المشاريع الناشئة والمنشآت الصغيرة والمتوسطة وقروض العمل الحر ببرامج ميسرة.',
+      target: '#funding',
+      icon: 'bank'
+    },
+    {
+      title: 'تمويل صندوق التنمية الصناعية السعودي (SIDF)',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'قروض وتمويل إنشاء وتوسعة المصانع والمشاريع الصناعية الكبرى وسلاسل الإمداد.',
+      target: '#funding',
+      icon: 'bank'
+    },
+    {
+      title: 'تمويل صندوق التنمية الزراعية (ADF)',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'تمويل التقنيات الزراعية الحديثة والبيوت المحمية ومشاريع الأمن الغذائي والثروة الحيوانية.',
+      target: '#funding',
+      icon: 'bank'
+    },
+    {
+      title: 'تمويل صندوق التنمية السياحي (TDF)',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'دعم وتمويل المشاريع والمنشآت السياحية في الوجهات والمواقع المستهدفة برؤية المملكة 2030.',
+      target: '#funding',
+      icon: 'bank'
+    },
+    {
+      title: 'برنامج كفالة لتمويل المنشآت الصغيرة والمتوسطة',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'توفير ضمانات التمويل لتسهيل حصول رواد الأعمال على قروض وتسهيلات من البنوك التجارية.',
+      target: '#funding',
+      icon: 'bank'
+    },
+    {
+      title: 'مبادرات وبرامج الهيئة العامة للمنشآت (منشآت)',
+      category: 'funding',
+      categoryLabel: 'جهة تمويل',
+      desc: 'حزم دعم وتمكين استشارية ومالية وبرامج حاضنات ومسرعات لتسريع نمو الشركات الناشئة.',
+      target: '#funding',
+      icon: 'bank'
+    },
+
+    // الأسئلة الشائعة
+    {
+      title: 'ما هي دراسة الجدوى وما أهميتها لنجاح المشروع؟',
+      category: 'faq',
+      categoryLabel: 'سؤال شائع',
+      desc: 'دراسة الجدوى هي أداة تقييم شاملة تحدد فرص نجاح المشروع والمخاطر المتوقعة والعوائد المالية بدقة.',
+      target: '#faq',
+      icon: 'help'
+    },
+    {
+      title: 'كم يستغرق إعداد دراسة الجدوى المتكاملة؟',
+      category: 'faq',
+      categoryLabel: 'سؤال شائع',
+      desc: 'تتراوح المدة عادة بين 7 إلى 20 يوم عمل حسب حجم المشروع وطبيعة القطاع والبيانات المطلوبة.',
+      target: '#faq',
+      icon: 'help'
+    },
+    {
+      title: 'هل دراسات الجدوى معتمدة ومقبولة لدى البنوك وجهات التمويل؟',
+      category: 'faq',
+      categoryLabel: 'سؤال شائع',
+      desc: 'نعم، دراساتنا معتمدة 100% ومعدة وفق النماذج والمعايير الرسمية المعتمدة لجهات التمويل في السعودية.',
+      target: '#faq',
+      icon: 'help'
+    },
+    {
+      title: 'كيف تضمنون سرية بيانات ومعلومات الفكرة الاستثمارية؟',
+      category: 'faq',
+      categoryLabel: 'سؤال شائع',
+      desc: 'نلتزم بتوقيع اتفاقية سرية معلومات ملزمة قانونياً (NDA) مع كل عميل قبل البدء بالدراسة.',
+      target: '#faq',
+      icon: 'help'
+    },
+
+    // المقالات
+    {
+      title: 'خطوات إعداد دراسة جدوى ناجحة تضمن قبول التمويل',
+      category: 'blog',
+      categoryLabel: 'مقال استشاري',
+      desc: 'دليل عملي شامل لأهم المعايير التي تبحث عنها لجان التقييم والصناديق التمويلية.',
+      target: '#blog',
+      icon: 'article'
+    },
+    {
+      title: 'أهم المؤشرات المالية في تقييم المشاريع الاستثمارية',
+      category: 'blog',
+      categoryLabel: 'مقال استشاري',
+      desc: 'شرح مفصل لمعدل العائد الداخلي IRR، صافي القيمة الحالية NPV، وفترة استرداد رأس المال.',
+      target: '#blog',
+      icon: 'article'
+    },
+
+    // تواصل
+    {
+      title: 'طلب استشارة فورية أو عرض سعر لدراسة جدوى',
+      category: 'services',
+      categoryLabel: 'تواصل معنا',
+      desc: 'املأ تفاصيل مشروعك وسيقوم خبراؤنا بالتواصل معك مباشرة لتقديم استشارة مبدئية مجانية.',
+      target: '#contact',
+      icon: 'chat'
+    }
+  ];
+
+  function getCategoryBadgeClass(cat) {
+    switch (cat) {
+      case 'services': return 'bg-[#287B3F]/25 text-[#61ce70] border-[#287B3F]/40';
+      case 'sectors': return 'bg-orange/20 text-[#ffb169] border-orange/30';
+      case 'funding': return 'bg-blue-500/20 text-blue-300 border-blue-500/30';
+      case 'faq': return 'bg-purple-500/20 text-purple-300 border-purple-500/30';
+      case 'blog': return 'bg-amber-500/20 text-amber-300 border-amber-500/30';
+      default: return 'bg-white/10 text-white/80 border-white/20';
+    }
+  }
+
+  function getCategoryIconSvg(icon) {
+    return `<svg class="w-5 h-5 fill-none stroke-current" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+    </svg>`;
+  }
+
+  function highlightMatches(text, query) {
+    if (!query) return text;
+    const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`(${escapedQuery})`, 'gi');
+    return text.replace(regex, '<span class="search-highlight">$1</span>');
+  }
+
+  function renderSearchResults(query = '') {
+    if (!searchResultsList) return;
+    const trimmedQuery = query.trim().toLowerCase();
+
+    // If query is empty and category is all, show trending
+    if (!trimmedQuery && activeCategory === 'all') {
+      const trendingContainer = document.getElementById('searchTrendingContainer');
+      if (trendingContainer) {
+        searchResultsList.innerHTML = '';
+        searchResultsList.appendChild(trendingContainer);
+        return;
+      }
+    }
+
+    // Filter items
+    const filtered = searchDataset.filter(item => {
+      const matchCategory = activeCategory === 'all' || item.category === activeCategory;
+      if (!matchCategory) return false;
+      if (!trimmedQuery) return true;
+      return item.title.toLowerCase().includes(trimmedQuery) ||
+             item.desc.toLowerCase().includes(trimmedQuery) ||
+             item.categoryLabel.toLowerCase().includes(trimmedQuery);
+    });
+
+    if (filtered.length === 0) {
+      searchResultsList.innerHTML = `
+        <div class="text-center py-10 px-4">
+          <div class="w-14 h-14 rounded-full bg-white/5 text-white/40 flex items-center justify-center mx-auto mb-3">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h4 class="text-white text-base font-bold mb-1">لم نتمكن من العثور على نتائج</h4>
+          <p class="text-white/50 text-xs sm:text-sm max-w-sm mx-auto mb-4">جرب البحث بكلمات أخرى أو تواصل مباشرة مع فريقنا لمساعدتك في استفسارك.</p>
+          <a href="#contact" class="inline-flex items-center gap-2 bg-[#287B3F] hover:bg-[#1f6131] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-all" onclick="closeSearch()">
+            طلب استشارة فورية
+          </a>
+        </div>
+      `;
+      selectedResultIndex = -1;
+      return;
+    }
+
+    selectedResultIndex = -1;
+    let html = `<div class="space-y-2">`;
+    filtered.forEach((item, index) => {
+      const badgeClass = getCategoryBadgeClass(item.category);
+      const highlightedTitle = highlightMatches(item.title, trimmedQuery);
+      const highlightedDesc = highlightMatches(item.desc, trimmedQuery);
+
+      html += `
+        <a href="${item.target}" class="search-result-item group" data-index="${index}">
+          <div class="w-10 h-10 rounded-xl bg-white/5 text-[#61ce70] group-hover:bg-[#287B3F]/30 flex items-center justify-center flex-shrink-0 transition-colors">
+            ${getCategoryIconSvg(item.icon)}
+          </div>
+          <div class="flex-grow min-w-0 text-right">
+            <div class="flex items-center gap-2 mb-1 flex-wrap">
+              <span class="text-xs font-bold px-2 py-0.5 rounded-md border ${badgeClass}">${item.categoryLabel}</span>
+              <h5 class="text-white text-sm sm:text-base font-bold truncate group-hover:text-[#61ce70] transition-colors">${highlightedTitle}</h5>
+            </div>
+            <p class="text-white/60 text-xs sm:text-sm line-clamp-2">${highlightedDesc}</p>
+          </div>
+          <div class="w-6 h-6 text-white/30 group-hover:text-white flex-shrink-0 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </div>
+        </a>
+      `;
+    });
+    html += `</div>`;
+
+    searchResultsList.innerHTML = html;
+
+    // Attach click handlers to close search and navigate smoothly
+    const resultElements = searchResultsList.querySelectorAll('.search-result-item');
+    resultElements.forEach(el => {
+      el.addEventListener('click', (e) => {
+        const targetId = el.getAttribute('href');
+        closeSearch();
+        if (targetId && targetId.startsWith('#')) {
+          e.preventDefault();
+          const targetEl = document.querySelector(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            targetEl.classList.add('ring-2', 'ring-[#287B3F]', 'transition-all');
+            setTimeout(() => targetEl.classList.remove('ring-2', 'ring-[#287B3F]'), 2000);
+          }
+        }
+      });
+    });
+  }
 
   function openSearch() {
     searchModal?.classList.add('opacity-100', 'pointer-events-auto');
     searchModal?.classList.remove('opacity-0', 'pointer-events-none');
-    setTimeout(() => searchInput?.focus(), 150);
+    document.body.classList.add('overflow-hidden');
+    setTimeout(() => {
+      searchInput?.focus();
+      if (!searchInput?.value) {
+        renderSearchResults('');
+      }
+    }, 100);
   }
 
   function closeSearch() {
     searchModal?.classList.remove('opacity-100', 'pointer-events-auto');
     searchModal?.classList.add('opacity-0', 'pointer-events-none');
+    document.body.classList.remove('overflow-hidden');
   }
 
+  // Event Listeners
   searchTriggers.forEach(btn => btn.addEventListener('click', openSearch));
   searchCloseBtn?.addEventListener('click', closeSearch);
 
   searchModal?.addEventListener('click', (e) => {
     if (e.target === searchModal) closeSearch();
+  });
+
+  searchInput?.addEventListener('input', (e) => {
+    const val = e.target.value;
+    if (searchClearBtn) {
+      if (val.length > 0) {
+        searchClearBtn.classList.remove('hidden');
+      } else {
+        searchClearBtn.classList.add('hidden');
+      }
+    }
+    renderSearchResults(val);
+  });
+
+  searchClearBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      searchClearBtn.classList.add('hidden');
+      searchInput.focus();
+      renderSearchResults('');
+    }
+  });
+
+  // Category Pills
+  searchCategoryPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      searchCategoryPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      activeCategory = pill.dataset.cat || 'all';
+      renderSearchResults(searchInput ? searchInput.value : '');
+    });
+  });
+
+  // Trending searches clicks
+  trendingItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const q = item.getAttribute('data-query');
+      if (searchInput && q) {
+        searchInput.value = q;
+        searchClearBtn?.classList.remove('hidden');
+        renderSearchResults(q);
+      }
+    });
+  });
+
+  // Keyboard navigation inside search
+  searchInput?.addEventListener('keydown', (e) => {
+    const resultItems = searchResultsList?.querySelectorAll('.search-result-item');
+    if (!resultItems || resultItems.length === 0) return;
+
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedResultIndex = (selectedResultIndex + 1) % resultItems.length;
+      resultItems.forEach((el, idx) => {
+        el.classList.toggle('is-selected', idx === selectedResultIndex);
+        if (idx === selectedResultIndex) el.scrollIntoView({ block: 'nearest' });
+      });
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedResultIndex = (selectedResultIndex - 1 + resultItems.length) % resultItems.length;
+      resultItems.forEach((el, idx) => {
+        el.classList.toggle('is-selected', idx === selectedResultIndex);
+        if (idx === selectedResultIndex) el.scrollIntoView({ block: 'nearest' });
+      });
+    } else if (e.key === 'Enter') {
+      if (selectedResultIndex >= 0 && selectedResultIndex < resultItems.length) {
+        e.preventDefault();
+        resultItems[selectedResultIndex].click();
+      }
+    }
   });
 
 

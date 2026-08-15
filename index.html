@@ -39,11 +39,11 @@
       class="top-bar bg-brand-600 text-white py-3 text-xs md:text-sm border-b border-white/10 transition-transform duration-300 relative z-50"
     >
       <div
-        class="max-w-7xl mx-auto px-4 md:px-8 flex justify-between items-center"
+        class="max-w-7xl mx-auto px-4 md:px-8 flex justify-center md:justify-between items-center"
       >
         <!-- Right Side (in RTL): Navigation Pages -->
         <div
-          class="flex items-center gap-3 sm:gap-5 text-white/90 text-xs sm:text-sm font-medium"
+          class="flex items-center justify-center flex-wrap gap-3 sm:gap-5 text-white/90 text-xs sm:text-sm font-medium"
         >
           <a href="#why-us" class="hover:text-orange transition-colors"
             >من نحن</a
@@ -64,8 +64,8 @@
           >
         </div>
 
-        <!-- Left Side (in RTL): Social Media Icons Only -->
-        <div class="flex items-center gap-3.5 text-white/90 text-sm">
+        <!-- Left Side (in RTL): Social Media Icons (Hidden on mobile) -->
+        <div class="hidden md:flex items-center gap-3.5 text-white/90 text-sm">
           <a
             href="https://wa.me/966534401649"
             target="_blank"
@@ -194,37 +194,33 @@
          3. HERO SWIPER SLIDER SECTION (3 Slides Powered by Swiper.js)
          ========================================================================== -->
       <section
-        class="relative w-full bg-brand-900 min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px] flex items-center justify-center overflow-visible"
+        class="relative w-full bg-brand-900 min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center justify-center overflow-visible"
       >
         <!-- Swiper Main Slider -->
         <div
-          class="swiper heroSwiper w-full h-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px]"
+          class="swiper heroSwiper w-full h-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px]"
         >
           <div class="swiper-wrapper">
             <!-- Slide 1: دراسة جدوى متكاملة -->
             <div
-              class="swiper-slide relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px] flex items-center"
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
             >
-              <!-- Background Banner Image (Always visible on all screen sizes) -->
+              <!-- Background Banner Image -->
               <div class="absolute inset-0 z-0 overflow-hidden">
                 <img
                   src="assets/hero-banner.png"
                   alt="دراسة جدوى متكاملة معتمدة للجهات التمويلية"
-                  class="w-full h-full object-cover object-right sm:object-center"
+                  class="w-full h-full object-cover object-center"
                 />
-                <!-- Smooth RTL dark gradient to guarantee text readability without altering the image layout -->
-                <div
-                  class="absolute inset-0 bg-gradient-to-l from-[#041a0c]/85 via-[#041a0c]/50 sm:via-[#041a0c]/30 to-transparent z-10 pointer-events-none"
-                ></div>
               </div>
 
               <!-- Content Floating on Right Side (RTL) -->
               <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-20 pt-12 sm:pt-16 pb-20 sm:pb-24 md:pb-24"
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
               >
                 <div class="max-w-xl md:max-w-2xl text-right">
                   <h1
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4 drop-shadow-md font-bold font-heading"
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading-normal mb-4 drop-shadow-md font-bold font-heading"
                   >
                     دراسة جدوى متكاملة
                     <span class="block text-orange mt-1 drop-shadow-sm"
@@ -233,7 +229,7 @@
                   </h1>
 
                   <p
-                    class="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 max-w-lg mb-6 sm:mb-8 leading-relaxed font-semibold drop-shadow"
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
                   >
                     نقدم لك حلولاً متخصصة واستشارات دقيقة لتحويل أفكارك
                     الاستثمارية إلى مشاريع ناجحة ومستدامة.
@@ -242,7 +238,7 @@
                   <div>
                     <a
                       href="#contact"
-                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
                     >
                       اطلب الآن
                     </a>
@@ -253,27 +249,24 @@
 
             <!-- Slide 2: تخطيط مالي واستثماري -->
             <div
-              class="swiper-slide relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px] flex items-center"
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
             >
               <!-- Background Banner Image -->
               <div class="absolute inset-0 z-0 overflow-hidden">
                 <img
                   src="assets/hero-banner-2.jpg"
                   alt="تخطيط مالي واستثماري متقدم"
-                  class="w-full h-full object-cover object-right sm:object-center"
+                  class="w-full h-full object-cover object-center"
                 />
-                <div
-                  class="absolute inset-0 bg-gradient-to-l from-[#041a0c]/85 via-[#041a0c]/50 sm:via-[#041a0c]/30 to-transparent z-10 pointer-events-none"
-                ></div>
               </div>
 
               <!-- Content Floating on Right Side (RTL) -->
               <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-20 pt-12 sm:pt-16 pb-20 sm:pb-24 md:pb-24"
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
               >
                 <div class="max-w-xl md:max-w-2xl text-right">
                   <h2
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4 drop-shadow-md font-bold font-heading"
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading- mb-4 drop-shadow-md font-bold font-heading"
                   >
                     تخطيط مالي واستثماري
                     <span class="block text-orange mt-1 drop-shadow-sm"
@@ -282,7 +275,7 @@
                   </h2>
 
                   <p
-                    class="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 max-w-lg mb-6 sm:mb-8 leading-relaxed font-semibold drop-shadow"
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
                   >
                     تحليلات مالية دقيقة وتوقعات تدفقات نقدية مبنية على بيانات
                     واقعية لدعم قراراتك وقبول التمويل.
@@ -291,7 +284,7 @@
                   <div>
                     <a
                       href="#contact"
-                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
                     >
                       ابدأ دراستك الآن
                     </a>
@@ -302,27 +295,24 @@
 
             <!-- Slide 3: دراسات سوق معتمدة -->
             <div
-              class="swiper-slide relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] lg:min-h-[580px] flex items-center"
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
             >
               <!-- Background Banner Image -->
               <div class="absolute inset-0 z-0 overflow-hidden">
                 <img
                   src="assets/hero-banner-3.jpg"
                   alt="دراسات سوق معتمدة وشاملة"
-                  class="w-full h-full object-cover object-right sm:object-center"
+                  class="w-full h-full object-cover object-center"
                 />
-                <div
-                  class="absolute inset-0 bg-gradient-to-l from-[#041a0c]/85 via-[#041a0c]/50 sm:via-[#041a0c]/30 to-transparent z-10 pointer-events-none"
-                ></div>
               </div>
 
               <!-- Content Floating on Right Side (RTL) -->
               <div
-                class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 w-full relative z-20 pt-12 sm:pt-16 pb-20 sm:pb-24 md:pb-24"
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
               >
                 <div class="max-w-xl md:max-w-2xl text-right">
                   <h2
-                    class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-snug sm:leading-tight mb-3 sm:mb-4 drop-shadow-md font-bold font-heading"
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading-normal mb-4 drop-shadow-md font-bold font-heading"
                   >
                     دراسات سوق معتمدة
                     <span class="block text-orange mt-1 drop-shadow-sm"
@@ -331,7 +321,7 @@
                   </h2>
 
                   <p
-                    class="text-xs sm:text-sm md:text-base lg:text-lg text-white/95 max-w-lg mb-6 sm:mb-8 leading-relaxed font-semibold drop-shadow"
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
                   >
                     رؤى تسويقية متعمقة وتحليل شامل للقطاعات المستهدفة لتمكين
                     مشروعك من الريادة والنمو.
@@ -340,7 +330,7 @@
                   <div>
                     <a
                       href="#contact"
-                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-sm sm:text-base md:text-lg px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
                     >
                       استشر خبرائنا الآن
                     </a>
@@ -350,16 +340,12 @@
             </div>
           </div>
 
-          <!-- Hero Swiper Navigation Buttons (Responsive for all screens) -->
+          <!-- Hero Swiper Navigation Buttons (Right & Left for RTL) -->
           <button
-            class="hero-prev-btn flex absolute right-2 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/35 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
+            class="hero-prev-btn hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
             aria-label="الشريحة السابقة"
           >
-            <svg
-              class="w-4 h-4 sm:w-5 sm:h-5 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -369,14 +355,10 @@
             </svg>
           </button>
           <button
-            class="hero-next-btn flex absolute left-2 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-black/35 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
+            class="hero-next-btn hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
             aria-label="الشريحة التالية"
           >
-            <svg
-              class="w-4 h-4 sm:w-5 sm:h-5 stroke-current"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
@@ -3881,7 +3863,7 @@
               تواصل معنا
             </span>
             <h2
-              class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-900 leading-tight mb-4 font-heading"
+              class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-900 leading-normal mb-4 font-heading"
             >
               طلب دراسة جدوى استشارية
             </h2>
@@ -4528,6 +4510,244 @@
         />
       </svg>
     </button>
+
+    <!-- ==========================================================================
+       14. INTERACTIVE SEARCH MODAL (Full Search Overlay)
+       ========================================================================== -->
+    <div
+      id="searchModal"
+      class="search-modal fixed inset-0 z-[100] bg-[#041a0c]/85 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300 flex items-start justify-center p-3 sm:p-6 md:p-10 overflow-y-auto"
+      role="dialog"
+      aria-modal="true"
+      aria-label="البحث في دراسة وجدوى"
+    >
+      <div
+        class="search-modal-container bg-[#082414] border border-[#287B3F]/40 shadow-[0_25px_80px_rgba(0,0,0,0.7)] rounded-3xl w-full max-w-2xl overflow-hidden transition-all duration-300 transform scale-95 my-auto"
+      >
+        <!-- Header with Search Input -->
+        <div class="p-4 sm:p-6 border-b border-white/10 relative bg-[#061e10]">
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 rounded-full bg-[#287B3F]/25 text-[#61ce70] flex items-center justify-center flex-shrink-0"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="siteSearchInput"
+              class="search-input w-full bg-transparent text-white text-base sm:text-lg placeholder-white/40 focus:outline-none font-medium text-right"
+              placeholder="ابحث عن خدمة، دراسة جدوى، قطاع، أو جهة تمويل..."
+              autocomplete="off"
+            />
+            <button
+              id="searchClearBtn"
+              class="text-white/40 hover:text-white transition-colors p-1.5 hidden rounded-full hover:bg-white/10"
+              aria-label="مسح البحث"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <button
+              class="search-close-btn w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white/80 hover:text-white flex items-center justify-center transition-colors flex-shrink-0"
+              aria-label="إغلاق"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2.5"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Quick Category Filter Pills -->
+          <div
+            class="flex items-center gap-2 mt-4 overflow-x-auto no-scrollbar pt-1"
+          >
+            <button class="search-category-pill active" data-cat="all">
+              الكل
+            </button>
+            <button class="search-category-pill" data-cat="services">
+              الخدمات
+            </button>
+            <button class="search-category-pill" data-cat="sectors">
+              القطاعات
+            </button>
+            <button class="search-category-pill" data-cat="funding">
+              جهات التمويل
+            </button>
+            <button class="search-category-pill" data-cat="faq">
+              الأسئلة الشائعة
+            </button>
+            <button class="search-category-pill" data-cat="blog">
+              المقالات
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Area -->
+        <div
+          id="searchResultsList"
+          class="p-4 sm:p-6 max-h-[55vh] overflow-y-auto space-y-2.5"
+        >
+          <!-- Default Trending Searches (shown before typing) -->
+          <div id="searchTrendingContainer" class="py-1">
+            <span
+              class="text-xs text-[#61ce70] font-bold tracking-wider block mb-3"
+              >الأكثر بحثاً وتصفحاً</span
+            >
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button
+                class="trending-search-item flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-[#287B3F]/20 border border-white/5 hover:border-[#61ce70]/30 transition-all text-right group"
+                data-query="دراسة جدوى زراعية"
+              >
+                <span
+                  class="w-7 h-7 rounded-lg bg-[#287B3F]/30 text-[#61ce70] flex items-center justify-center text-xs group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    class="w-4 h-4 fill-none stroke-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="text-sm font-semibold text-white/90 group-hover:text-white"
+                  >دراسة جدوى زراعية</span
+                >
+              </button>
+
+              <button
+                class="trending-search-item flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-[#287B3F]/20 border border-white/5 hover:border-[#61ce70]/30 transition-all text-right group"
+                data-query="بنك التنمية الاجتماعية"
+              >
+                <span
+                  class="w-7 h-7 rounded-lg bg-[#287B3F]/30 text-[#61ce70] flex items-center justify-center text-xs group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    class="w-4 h-4 fill-none stroke-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="text-sm font-semibold text-white/90 group-hover:text-white"
+                  >تمويل بنك التنمية الاجتماعية</span
+                >
+              </button>
+
+              <button
+                class="trending-search-item flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-[#287B3F]/20 border border-white/5 hover:border-[#61ce70]/30 transition-all text-right group"
+                data-query="القطاع السياحي"
+              >
+                <span
+                  class="w-7 h-7 rounded-lg bg-[#287B3F]/30 text-[#61ce70] flex items-center justify-center text-xs group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    class="w-4 h-4 fill-none stroke-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="text-sm font-semibold text-white/90 group-hover:text-white"
+                  >مشاريع القطاع السياحي</span
+                >
+              </button>
+
+              <button
+                class="trending-search-item flex items-center gap-3 p-3 rounded-xl bg-white/5 hover:bg-[#287B3F]/20 border border-white/5 hover:border-[#61ce70]/30 transition-all text-right group"
+                data-query="تحليل مالي"
+              >
+                <span
+                  class="w-7 h-7 rounded-lg bg-[#287B3F]/30 text-[#61ce70] flex items-center justify-center text-xs group-hover:scale-110 transition-transform"
+                >
+                  <svg
+                    class="w-4 h-4 fill-none stroke-current"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                </span>
+                <span
+                  class="text-sm font-semibold text-white/90 group-hover:text-white"
+                  >التحليل والتقييم المالي</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer with keyboard shortcuts -->
+        <div
+          class="px-6 py-3 bg-[#05180c] border-t border-white/5 flex items-center justify-between text-xs text-white/50"
+        >
+          <span class="flex items-center gap-2">
+            <kbd
+              class="px-2 py-0.5 rounded bg-white/10 text-white/80 text-[10px] font-mono"
+              >Esc</kbd
+            >
+            للإغلاق
+          </span>
+          <span class="flex items-center gap-2 text-white/60">
+            البحث في أكثر من <strong class="text-[#61ce70]">30+</strong> خدمة
+            ودراسة وقطاع
+          </span>
+        </div>
+      </div>
+    </div>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
