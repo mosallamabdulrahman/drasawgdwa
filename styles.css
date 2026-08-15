@@ -8,11 +8,11 @@ html {
 }
 
 body {
-  font-family:
+  /* font-family:
     "Cairo",
     system-ui,
     -apple-system,
-    sans-serif;
+    sans-serif; */
   direction: rtl;
   text-align: right;
   overflow-x: hidden;
@@ -427,4 +427,32 @@ h6 {
     width: 54px;
     height: 54px;
   }
+}
+
+/* ==========================================================================
+   Hero Swiper Custom Slider Styles
+   ========================================================================== */
+.heroSwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-pagination .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+  border-radius: 9999px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.hero-pagination .swiper-pagination-bullet:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-pagination .swiper-pagination-bullet-active {
+  width: 32px;
+  background-color: #f5821f;
+  box-shadow: 0 0 12px rgba(245, 130, 31, 0.7);
 }

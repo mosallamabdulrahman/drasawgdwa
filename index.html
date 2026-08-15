@@ -191,58 +191,207 @@
 
     <main id="main-content">
       <!-- ==========================================================================
-         3.1 PRIMARY BANNER HERO SECTION (First Hero with User Banner Background)
+         3. HERO SWIPER SLIDER SECTION (3 Slides Powered by Swiper.js)
          ========================================================================== -->
       <section
-        class="relative w-full bg-brand-900 min-h-[400px] sm:min-h-[460px] lg:min-h-[520px] flex items-center justify-center"
+        class="relative w-full bg-brand-900 min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center justify-center overflow-visible"
       >
-        <!-- Background Banner Image with Overflow Hidden to prevent image spill -->
-        <div class="absolute inset-0 z-0 overflow-hidden">
-          <img
-            src="assets/hero-banner.png"
-            alt="دراسة جدوى متكاملة معتمدة للجهات التمويلية"
-            class="w-full h-full object-cover object-center hidden md:block"
-          />
-          <!-- Mobile view optimization with gradient overlay for text readability -->
-          <div
-            class="md:hidden absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/95 to-brand-800/80 z-10"
-          ></div>
-          <img
-            src="assets/hero-banner.png"
-            alt="دراسة جدوى متكاملة"
-            class="w-full h-full object-cover object-left md:hidden opacity-30 mix-blend-overlay z-0"
-          />
-        </div>
-
-        <!-- Content Floating on the Right Side (RTL) over Green Pattern -->
-        <div
-          class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-12 md:py-16"
-        >
-          <div class="max-w-xl md:max-w-2xl text-right reveal">
-            <h1
-              class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 drop-shadow-md font-bold"
+        <!-- Swiper Main Slider -->
+        <div class="swiper heroSwiper w-full h-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px]">
+          <div class="swiper-wrapper">
+            <!-- Slide 1: دراسة جدوى متكاملة -->
+            <div
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
             >
-              دراسة جدوى متكاملة
-              <span class="block text-orange mt-1 drop-shadow-sm"
-                >معتمدة للجهات التمويلية</span
-              >
-            </h1>
+              <!-- Background Banner Image -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <img
+                  src="assets/hero-banner.png"
+                  alt="دراسة جدوى متكاملة معتمدة للجهات التمويلية"
+                  class="w-full h-full object-cover object-center hidden md:block"
+                />
+                <!-- Mobile gradient overlay for perfect readability -->
+                <div
+                  class="md:hidden absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/95 to-brand-800/80 z-10"
+                ></div>
+                <img
+                  src="assets/hero-banner.png"
+                  alt="دراسة جدوى متكاملة"
+                  class="w-full h-full object-cover object-left md:hidden opacity-30 mix-blend-overlay z-0"
+                />
+              </div>
 
-            <p
-              class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
+              <!-- Content Floating on Right Side (RTL) -->
+              <div
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
+              >
+                <div class="max-w-xl md:max-w-2xl text-right">
+                  <h1
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 drop-shadow-md font-bold font-heading"
+                  >
+                    دراسة جدوى متكاملة
+                    <span class="block text-orange mt-1 drop-shadow-sm"
+                      >معتمدة للجهات التمويلية</span
+                    >
+                  </h1>
+
+                  <p
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
+                  >
+                    نقدم لك حلولاً متخصصة واستشارات دقيقة لتحويل أفكارك الاستثمارية إلى مشاريع ناجحة ومستدامة.
+                  </p>
+
+                  <div>
+                    <a
+                      href="#contact"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                    >
+                      اطلب الآن
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: تخطيط مالي واستثماري -->
+            <div
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
             >
-              نقدم لك حلولاً متخصصة لتحويل أفكارك إلى مشاريع ناجحة ومستدامة.
-            </p>
+              <!-- Background Banner Image -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <img
+                  src="assets/hero-banner-2.jpg"
+                  alt="تخطيط مالي واستثماري متقدم"
+                  class="w-full h-full object-cover object-center hidden md:block"
+                />
+                <div
+                  class="md:hidden absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/95 to-brand-800/80 z-10"
+                ></div>
+                <img
+                  src="assets/hero-banner-2.jpg"
+                  alt="تخطيط مالي واستثماري"
+                  class="w-full h-full object-cover object-left md:hidden opacity-30 mix-blend-overlay z-0"
+                />
+              </div>
 
-            <div>
-              <a
-                href="#contact"
-                class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+              <!-- Content Floating on Right Side (RTL) -->
+              <div
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
               >
-                اطلب الآن
-              </a>
+                <div class="max-w-xl md:max-w-2xl text-right">
+                  <h2
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 drop-shadow-md font-bold font-heading"
+                  >
+                    تخطيط مالي واستثماري
+                    <span class="block text-orange mt-1 drop-shadow-sm"
+                      >يضمن نجاح وتوسع أعمالك</span
+                    >
+                  </h2>
+
+                  <p
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
+                  >
+                    تحليلات مالية دقيقة وتوقعات تدفقات نقدية مبنية على بيانات واقعية لدعم قراراتك وقبول التمويل.
+                  </p>
+
+                  <div>
+                    <a
+                      href="#contact"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                    >
+                      ابدأ دراستك الآن
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: دراسات سوق معتمدة -->
+            <div
+              class="swiper-slide relative w-full min-h-[440px] sm:min-h-[480px] lg:min-h-[540px] flex items-center"
+            >
+              <!-- Background Banner Image -->
+              <div class="absolute inset-0 z-0 overflow-hidden">
+                <img
+                  src="assets/hero-banner-3.jpg"
+                  alt="دراسات سوق معتمدة وشاملة"
+                  class="w-full h-full object-cover object-center hidden md:block"
+                />
+                <div
+                  class="md:hidden absolute inset-0 bg-gradient-to-r from-brand-900 via-brand-900/95 to-brand-800/80 z-10"
+                ></div>
+                <img
+                  src="assets/hero-banner-3.jpg"
+                  alt="دراسات سوق معتمدة"
+                  class="w-full h-full object-cover object-left md:hidden opacity-30 mix-blend-overlay z-0"
+                />
+              </div>
+
+              <!-- Content Floating on Right Side (RTL) -->
+              <div
+                class="max-w-7xl mx-auto px-4 md:px-8 w-full relative z-20 py-14 sm:py-16 md:py-20"
+              >
+                <div class="max-w-xl md:max-w-2xl text-right">
+                  <h2
+                    class="text-3xl sm:text-4xl lg:text-5xl text-white leading-tight mb-4 drop-shadow-md font-bold font-heading"
+                  >
+                    دراسات سوق معتمدة
+                    <span class="block text-orange mt-1 drop-shadow-sm"
+                      >تحاكي الفرص والمنافسين</span
+                    >
+                  </h2>
+
+                  <p
+                    class="text-sm sm:text-base md:text-lg text-white/95 max-w-lg mb-8 leading-relaxed font-semibold drop-shadow"
+                  >
+                    رؤى تسويقية متعمقة وتحليل شامل للقطاعات المستهدفة لتمكين مشروعك من الريادة والنمو.
+                  </p>
+
+                  <div>
+                    <a
+                      href="#contact"
+                      class="inline-flex items-center justify-center bg-orange hover:bg-orange-hover text-white font-bold text-base sm:text-lg px-8 sm:px-10 py-3.5 rounded-full shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 border border-white/20"
+                    >
+                      استشر خبرائنا الآن
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- Hero Swiper Navigation Buttons (Right & Left for RTL) -->
+          <button
+            class="hero-prev-btn hidden md:flex absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
+            aria-label="الشريحة السابقة"
+          >
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
+          <button
+            class="hero-next-btn hidden md:flex absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-black/30 hover:bg-[#287B3F] backdrop-blur-md text-white items-center justify-center border border-white/20 transition-all duration-300 cursor-pointer hover:scale-110 shadow-lg"
+            aria-label="الشريحة التالية"
+          >
+            <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2.5"
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
+
+          <!-- Hero Swiper Pagination Dots -->
+          <div
+            class="hero-pagination absolute bottom-12 sm:bottom-14 left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-2"
+          ></div>
         </div>
 
         <!-- 4. SECTOR SWITCHER (Position Absolute at Bottom Center with Swiper - Exactly 3 Visible Items) -->

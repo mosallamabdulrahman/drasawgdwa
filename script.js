@@ -146,7 +146,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* --------------------------------------------------------------------------
-     4. SECTOR SWITCHER (Swiper Auto-Loop - Exactly 3 Visible Slides)
+     4.0 HERO SWIPER SLIDER (3 High-Performance Slides with Swiper.js)
+     -------------------------------------------------------------------------- */
+  if (typeof Swiper !== 'undefined' && document.querySelector('.heroSwiper')) {
+    const heroSwiper = new Swiper('.heroSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 0,
+      loop: true,
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true,
+      },
+      speed: 900,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      },
+      navigation: {
+        nextEl: '.hero-next-btn',
+        prevEl: '.hero-prev-btn',
+      },
+      pagination: {
+        el: '.hero-pagination',
+        clickable: true,
+      },
+    });
+  }
+
+
+  /* --------------------------------------------------------------------------
+     4.1 SECTOR SWITCHER (Swiper Auto-Loop - Exactly 3 Visible Slides)
      -------------------------------------------------------------------------- */
   function updateSectorActiveState(realIndex) {
     const allBtns = document.querySelectorAll('.sectorSwiper .sector-pill-btn');
