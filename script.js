@@ -939,28 +939,32 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
      10. CONTACT FORM VALIDATION & FEEDBACK
      -------------------------------------------------------------------------- */
-  const contactForm = document.getElementById('contactForm');
-  const successMsg = document.getElementById('formSuccessMsg');
+  const contactForm = document.querySelector('form[data-ajax-form]') || document.getElementById('contactForm');
+  const formMessage = contactForm?.querySelector('[data-form-message]') || document.getElementById('formSuccessMsg');
 
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       
-      let isValid = true;
-      const nameInput = document.getElementById('formName');
-      const phoneInput = document.getElementById('formPhone');
-      const emailInput = document.getElementById('formEmail');
+      const nameInput = contactForm.querySelector('[name="name"]') || document.getElementById('formName');
+      const phoneInput = contactForm.querySelector('[name="phone"]') || document.getElementById('formPhone');
+      const emailInput = contactForm.querySelector('[name="email"]') || document.getElementById('formEmail');
 
-      if (!nameInput || nameInput.value.trim().length < 2) isValid = false;
-      if (!emailInput || !emailInput.value.includes('@')) isValid = false;
+      let isValid = true;
+      if (nameInput && nameInput.value.trim().length < 2) isValid = false;
+      if (emailInput && !emailInput.value.includes('@')) isValid = false;
 
       if (isValid) {
         contactForm.reset();
-        if (successMsg) {
-          successMsg.classList.remove('hidden');
+        if (formMessage) {
+          formMessage.innerHTML = '<div class="mt-5 p-4 rounded-xl bg-[#287B3F] text-white text-center font-bold text-base shadow-md animate-fade-in">✨ تم إرسال رسالتك بنجاح! سيتواصل معك أحد مستشارينا في أقرب وقت.</div>';
+          formMessage.removeAttribute('hidden');
+          formMessage.classList.remove('hidden');
           setTimeout(() => {
-            successMsg.classList.add('hidden');
-          }, 5000);
+            formMessage.setAttribute('hidden', '');
+            formMessage.classList.add('hidden');
+            formMessage.innerHTML = '';
+          }, 6000);
         }
       }
     });

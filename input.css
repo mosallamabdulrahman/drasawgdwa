@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .bs-input {
+    @apply w-full border border-slate-200 rounded-lg text-slate-800 outline-none transition-all duration-200 placeholder:text-slate-400;
+  }
+  .bs-input:focus {
+    @apply border-brand-900 bg-white ring-2 ring-brand-900/15;
+  }
+}
+
+@layer utilities {
+  .text-slate-650 {
+    color: #3f4d61;
+  }
+}
