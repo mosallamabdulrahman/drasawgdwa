@@ -10,6 +10,9 @@
     @apply border-brand-900 bg-white ring-2 ring-brand-900/15;
   }
 }
+.dir-ltr {
+  direction: ltr;
+}
 
 @layer utilities {
   .text-slate-650 {
