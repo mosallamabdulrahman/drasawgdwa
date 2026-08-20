@@ -583,3 +583,19 @@ h6 {
   border-radius: 4px;
   font-weight: 800;
 }
+
+/* Custom Scrollbar for Sticky TOC */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(40, 123, 63, 0.2);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(40, 123, 63, 0.5);
+}
+
