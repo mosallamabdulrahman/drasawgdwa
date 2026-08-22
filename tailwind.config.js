@@ -1,6 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./script.js", "./*.html"],
+  content: ["./*.html", "./html/**/*.html", "./assets/js/**/*.js"],
   theme: {
     extend: {
       colors: {
@@ -14,10 +13,11 @@ module.exports = {
           50: "#f2f8f3",
           pale: "#eaf7ee",
           dark: "#1b5e2f",
+          body: "#f4f6f5",
         },
-        'drasa-green': '#287b3f',
-        'drasa-greenDark': '#1f6332',
-        'drasa-greenPale': '#eaf7ee',
+        "drasa-green": "#287b3f",
+        "drasa-greenDark": "#1f6332",
+        "drasa-greenPale": "#eaf7ee",
         orange: {
           DEFAULT: "#f5821f",
           hover: "#e07316",
