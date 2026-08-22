@@ -356,12 +356,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function getCategoryBadgeClass(cat) {
     switch (cat) {
-      case 'services': return 'bg-[#287B3F]/25 text-[#61ce70] border-[#287B3F]/40';
-      case 'sectors': return 'bg-orange/20 text-[#ffb169] border-orange/30';
-      case 'funding': return 'bg-blue-500/20 text-blue-300 border-blue-500/30';
-      case 'faq': return 'bg-purple-500/20 text-purple-300 border-purple-500/30';
-      case 'blog': return 'bg-amber-500/20 text-amber-300 border-amber-500/30';
-      default: return 'bg-white/10 text-white/80 border-white/20';
+      case 'services': return 'bg-brand-50 text-brand-900 border-brand-200';
+      case 'sectors': return 'bg-orange/10 text-orange border-orange/20';
+      case 'funding': return 'bg-blue-50 text-blue-700 border-blue-200';
+      case 'faq': return 'bg-purple-50 text-purple-700 border-purple-200';
+      case 'blog': return 'bg-amber-50 text-amber-800 border-amber-200';
+      default: return 'bg-slate-100 text-slate-700 border-slate-200';
     }
   }
 
@@ -405,13 +405,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (filtered.length === 0) {
       searchResultsList.innerHTML = `
         <div class="text-center py-10 px-4">
-          <div class="w-14 h-14 rounded-full bg-white/5 text-white/40 flex items-center justify-center mx-auto mb-3">
+          <div class="w-14 h-14 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h4 class="text-white text-base font-bold mb-1">لم نتمكن من العثور على نتائج</h4>
-          <p class="text-white/50 text-xs sm:text-sm max-w-sm mx-auto mb-4">جرب البحث بكلمات أخرى أو تواصل مباشرة مع فريقنا لمساعدتك في استفسارك.</p>
+          <h4 class="text-slate-800 text-base font-bold mb-1">لم نتمكن من العثور على نتائج</h4>
+          <p class="text-slate-500 text-xs sm:text-sm max-w-sm mx-auto mb-4">جرب البحث بكلمات أخرى أو تواصل مباشرة مع فريقنا لمساعدتك في استفسارك.</p>
           <a href="#contact" class="inline-flex items-center gap-2 bg-[#287B3F] hover:bg-[#1f6131] text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-full transition-all" onclick="closeSearch()">
             طلب استشارة فورية
           </a>
@@ -430,17 +430,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
       html += `
         <a href="${item.target}" class="search-result-item group" data-index="${index}">
-          <div class="w-10 h-10 rounded-xl bg-white/5 text-[#61ce70] group-hover:bg-[#287B3F]/30 flex items-center justify-center flex-shrink-0 transition-colors">
+          <div class="w-10 h-10 rounded-xl bg-brand-50 text-brand-900 group-hover:bg-brand-900 group-hover:text-white flex items-center justify-center flex-shrink-0 transition-colors">
             ${getCategoryIconSvg(item.icon)}
           </div>
           <div class="flex-grow min-w-0 text-right">
             <div class="flex items-center gap-2 mb-1 flex-wrap">
               <span class="text-xs font-bold px-2 py-0.5 rounded-md border ${badgeClass}">${item.categoryLabel}</span>
-              <h5 class="text-white text-sm sm:text-base font-bold truncate group-hover:text-[#61ce70] transition-colors">${highlightedTitle}</h5>
+              <h5 class="text-slate-800 text-sm sm:text-base font-bold truncate group-hover:text-brand-900 transition-colors">${highlightedTitle}</h5>
             </div>
-            <p class="text-white/60 text-xs sm:text-sm line-clamp-2">${highlightedDesc}</p>
+            <p class="text-slate-500 text-xs sm:text-sm line-clamp-2">${highlightedDesc}</p>
           </div>
-          <div class="w-6 h-6 text-white/30 group-hover:text-white flex-shrink-0 flex items-center justify-center transition-colors">
+          <div class="w-6 h-6 text-slate-400 group-hover:text-brand-900 flex-shrink-0 flex items-center justify-center transition-colors">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>

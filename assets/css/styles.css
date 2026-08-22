@@ -529,11 +529,11 @@ h6 {
 }
 
 /* ==========================================================================
-   Search Modal Custom Styling
+   Search Modal Custom Styling (Clean Light Mode - Body Color Matched)
    ========================================================================== */
 .search-modal {
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .search-category-pill {
@@ -541,9 +541,9 @@ h6 {
   font-size: 13px;
   font-weight: 700;
   border-radius: 9999px;
-  background-color: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
   white-space: nowrap;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -551,16 +551,15 @@ h6 {
 }
 
 .search-category-pill:hover {
-  background-color: rgba(40, 123, 63, 0.3);
-  color: #ffffff;
-  border-color: rgba(97, 206, 112, 0.4);
+  background-color: #e2e8f0;
+  color: #1e293b;
 }
 
 .search-category-pill.active {
   background-color: #287b3f !important;
   color: #ffffff !important;
-  border-color: #61ce70 !important;
-  box-shadow: 0 0 12px rgba(40, 123, 63, 0.5);
+  border-color: #287b3f !important;
+  box-shadow: 0 2px 8px rgba(40, 123, 63, 0.25);
 }
 
 .search-result-item {
@@ -568,9 +567,10 @@ h6 {
   align-items: center;
   gap: 12px;
   padding: 12px 14px;
-  border-radius: 16px;
-  background-color: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   text-decoration: none;
@@ -578,14 +578,15 @@ h6 {
 
 .search-result-item:hover,
 .search-result-item.is-selected {
-  background-color: rgba(40, 123, 63, 0.25);
-  border-color: rgba(97, 206, 112, 0.4);
+  background-color: #f2f8f3;
+  border-color: #c2e5ca;
   transform: translateX(-4px);
+  box-shadow: 0 4px 12px rgba(40, 123, 63, 0.08);
 }
 
 .search-highlight {
-  background-color: rgba(245, 130, 31, 0.35);
-  color: #ffb169;
+  background-color: rgba(245, 130, 31, 0.18);
+  color: #d96f14;
   padding: 0 3px;
   border-radius: 4px;
   font-weight: 800;
