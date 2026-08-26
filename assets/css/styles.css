@@ -79,10 +79,8 @@ h6 {
   width: 100%;
   right: 0;
 }
-.nav-link-item:hover {
-  color: #f5821f;
-}
-.nav-link-item.active:hover {
+.nav-link-item:hover,
+.nav-link-item.active {
   color: #f5821f;
 }
 
