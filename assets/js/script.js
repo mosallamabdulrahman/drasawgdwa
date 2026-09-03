@@ -4,10 +4,8 @@
  */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Render header if dynamic container #header-file is present
-  if (typeof renderHeader === "function") {
-    renderHeader();
-  }
+  if (typeof renderHeader === "function") renderHeader();
+  if (typeof renderFooter === "function") renderFooter();
 
   /* --------------------------------------------------------------------------
      1. STICKY HEADER & SCROLL PROGRESS RING (5.2)
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const topBar = document.querySelector(".top-bar");
   const scrollTopBtn = document.querySelector(".scroll-top-btn");
   const progressCircle = document.querySelector(".progress-ring-circle");
-
   const circleRadius = 25;
   const circleCircumference = 2 * Math.PI * circleRadius; // ~157.08px
 

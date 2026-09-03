@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 48" fill="none">
+  <!-- Bank Icon Group -->
+  <g fill="#0E5E38">
+    <!-- Pediment / Roof -->
+    <path d="M24 6L6 16H42L24 6Z"/>
+    <!-- Architrave -->
+    <rect x="7" y="17.5" width="34" height="2.5" rx="0.5"/>
+    <!-- 4 Columns -->
+    <rect x="9.5" y="21.5" width="4" height="15" rx="0.5"/>
+    <rect x="17.5" y="21.5" width="4" height="15" rx="0.5"/>
+    <rect x="26.5" y="21.5" width="4" height="15" rx="0.5"/>
+    <rect x="34.5" y="21.5" width="4" height="15" rx="0.5"/>
+    <!-- Base / Steps -->
+    <rect x="7" y="38" width="34" height="2.5" rx="0.5"/>
+    <rect x="5" y="41.5" width="38" height="2.5" rx="0.5"/>
+  </g>
+  <!-- Text: BANK TRANSFER -->
+  <text x="52" y="24" fill="#0E5E38" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" font-weight="900" letter-spacing="0.5">BANK</text>
+  <text x="52" y="39" fill="#475569" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="0.5">TRANSFER</text>
+</svg>
