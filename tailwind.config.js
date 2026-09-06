@@ -29,8 +29,13 @@ module.exports = {
         card: "0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02)",
       },
       fontFamily: {
-        heading: ["Cairo", "sans-serif"],
-        body: ["Cairo", "sans-serif"],
+        sans: ["Almarai", "system-ui", "-apple-system", "sans-serif"],
+        heading: ["Almarai", "system-ui", "-apple-system", "sans-serif"],
+        body: ["Almarai", "system-ui", "-apple-system", "sans-serif"],
+      },
+      fontWeight: {
+        black: "800",
+        extrabold: "800",
       },
     },
   },

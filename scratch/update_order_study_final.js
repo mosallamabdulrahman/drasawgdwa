@@ -1,611 +1,20 @@
-<!doctype html>
-<html lang="ar" dir="rtl" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="اطلب دراسة جدوى متكاملة ومعتمدة لمشروعك الآن من شركة دراسة وجدوى للاستشارات الاقتصادية. تحليل مالي وفني وسوقي دقيق معتمد لدى جهات التمويل وبنوك التنمية."
-    />
-    <title>اطلب دراسة جدوى | دراسة وجدوى للاستشارات الاقتصادية</title>
+const fs = require('fs');
+const path = require('path');
 
-    <!-- Google Fonts: Almarai -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap"
-      rel="stylesheet"
-    />
+const orderStudyPath = path.join(__dirname, '../order-study.html');
+const stylesPath = path.join(__dirname, '../assets/css/styles.css');
 
-    <!-- Local Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="./assets/vendor/swiper/swiper-bundle.min.css"
-    />
+let content = fs.readFileSync(orderStudyPath, 'utf8');
 
-    <!-- Local Compiled Tailwind CSS v3 -->
-    <link rel="stylesheet" href="./assets/css/tailwind.css" />
+// ============================================================================
+// 1. STATS SECTION (Section 3: خبرة أكثر من 7 سنوات)
+// ============================================================================
+const statsRegex = /<!-- ={10,}\s*3\.\s*SECTION:\s*خبرة أكثر من 7 سنوات[\s\S]*?<\/section>/;
 
-    <!-- Supplemental Styles -->
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-
-    <style>
-      /* Timeline Branch Line Styles */
-      .timeline-tree-stem {
-        position: absolute;
-        top: 2rem;
-        bottom: 2rem;
-        left: 50%;
-        width: 4px;
-        background: #107a48;
-        transform: translateX(-50%);
-        border-radius: 9999px;
-      }
-      @media (max-width: 768px) {
-        .timeline-tree-stem {
-          left: 2rem;
-          transform: none;
-        }
-      }
-      .funding-group-swiper .swiper-pagination-bullet {
-        width: 10px;
-        height: 10px;
-        background: #cbd5e1;
-        opacity: 1;
-        transition: all 0.3s;
-      }
-      .funding-group-swiper .swiper-pagination-bullet-active {
-        width: 28px;
-        border-radius: 8px;
-        background: #107a48;
-      }
-    </style>
-  </head>
-  <body
-    class="bg-[#F8FAF9] text-ink font-body antialiased selection:bg-brand-600 selection:text-white flex flex-col min-h-screen overflow-x-hidden"
-  >
-    <!-- Header Component Placeholder -->
-    <div id="header-file"></div>
-
-    <main class="flex-grow">
-      <!-- ==========================================================================
-         1. HERO SECTION WITH HANGING GLASSMORPHISM FORM
-         ========================================================================== -->
-      <!-- ==========================================================================
-         1. HERO SECTION (دراسة وجدوى - شريكك الأنسب لضمان النجاح)
-         Compact height so next section peeks above the fold; crisp white quote card
-         ========================================================================== -->
-      <!-- ==========================================================================
-         1. HERO SECTION (دراسة وجدوى - خيارك الأنسب لضمان النجاح)
-         Matching Image 4: Expanded line-height on title & hanging glassmorphic form
-         ========================================================================== -->
-      <!-- ==========================================================================
-         1. HERO SECTION (دراسة وجدوى - شريكك الأنسب لضمان النجاح)
-         Compact height so next section peeks above the fold; crisp white quote card
-         ========================================================================== -->
-      <!-- ==========================================================================
-         1. HERO SECTION (دراسة وجدوى - خيارك الأنسب لضمان النجاح)
-         Matching Image 4: Expanded line-height on title & hanging glassmorphic form
-         ========================================================================== -->
-      <section
-        class="relative bg-gradient-to-b from-[#0A4D2E] via-[#0D5936] to-[#0A4D2E] text-white pt-6 pb-12 sm:pt-8 sm:pb-16 lg:pt-8 lg:pb-16 overflow-visible"
-        style="
-          background:
-            radial-gradient(
-              circle at 80% 20%,
-              rgba(52, 211, 153, 0.18),
-              transparent 45%
-            ),
-            radial-gradient(
-              circle at 10% 80%,
-              rgba(16, 185, 129, 0.15),
-              transparent 50%
-            ),
-            linear-gradient(135deg, #0a4328 0%, #0e5e38 50%, #0a4328 100%);
-        "
-      >
-        <!-- Ambient Decorative Waves/Blobs -->
-        <div
-          class="absolute inset-0 pointer-events-none overflow-hidden opacity-30"
-        >
-          <div
-            class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-emerald-400/20 blur-3xl"
-          ></div>
-          <div
-            class="absolute top-1/2 -right-32 w-96 h-96 rounded-full bg-emerald-300/15 blur-3xl"
-          ></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-          <div
-            class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
-          >
-            <!-- Right Column in RTL: Content & Title matching Image 4 with larger line-height -->
-            <div class="lg:col-span-7 space-y-4 text-right">
-              <h1
-                class="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-heading font-black text-white"
-                style="line-height: 1.45"
-              >
-                دراسة و جدوى ...<br />
-                <span class="text-white font-black"
-                  >خيارك الأنسب لضمان النجاح...</span
-                >
-              </h1>
-
-              <p
-                class="text-white/85 text-sm sm:text-base lg:text-lg font-medium leading-relaxed max-w-xl mt-3"
-              >
-                دراسة وجدوى ... خيارك الأنسب في الاستشارات الاقتصادية ودراسات
-                الجدوى المعتمدة لتحويل الأفكار لمشاريع ناجحة إعداد المتميز
-                لدراسات الجدوى
-              </p>
-
-              <!-- Compact Trust Badges -->
-              <div
-                class="flex flex-wrap gap-2.5 pt-2 text-xs font-bold text-white/90"
-              >
-                <div
-                  class="flex items-center gap-2 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/15"
-                >
-                  <svg
-                    class="w-3.5 h-3.5 text-emerald-400 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>معتمدة بنكياً ورسمياً</span>
-                </div>
-                <div
-                  class="flex items-center gap-2 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/15"
-                >
-                  <svg
-                    class="w-3.5 h-3.5 text-emerald-400 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>أكثر من 7 سنوات خبرة</span>
-                </div>
-                <div
-                  class="flex items-center gap-2 bg-white/10 backdrop-blur-xs px-3 py-1.5 rounded-lg border border-white/15"
-                >
-                  <svg
-                    class="w-3.5 h-3.5 text-emerald-400 shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
-                  </svg>
-                  <span>استشارات مخصصة</span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Left Column in RTL: Hanging Glassmorphism Form matching Image 4 -->
-            <div class="lg:col-span-5 relative z-30 lg:-mb-24 mt-4 lg:mt-0">
-              <div
-                class="rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.4)] border border-white/30 backdrop-blur-xl"
-                style="
-                  background: rgba(255, 255, 255, 0.15);
-                  box-shadow:
-                    0 30px 60px -12px rgba(0, 0, 0, 0.35),
-                    inset 0 1px 0 rgba(255, 255, 255, 0.35);
-                "
-              >
-                <form
-                  id="orderStudyPageForm"
-                  class="space-y-3.5 text-right"
-                  novalidate
-                >
-                  <!-- 1. الاسم الثلاثي -->
-                  <div>
-                    <label
-                      class="block text-xs font-bold text-white/90 mb-1"
-                      for="studyName"
-                      >الاسم الثلاثي</label
-                    >
-                    <input
-                      type="text"
-                      id="studyName"
-                      name="name"
-                      required
-                      placeholder="الاسم الثلاثي"
-                      class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-2.5 text-white placeholder-white/60 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white/25 transition-all text-right"
-                    />
-                  </div>
-
-                  <!-- 2. الهاتف -->
-                  <div>
-                    <label
-                      class="block text-xs font-bold text-white/90 mb-1"
-                      for="studyPhone"
-                      >الهاتف</label
-                    >
-                    <input
-                      type="tel"
-                      id="studyPhone"
-                      name="phone"
-                      required
-                      placeholder="الهاتف"
-                      class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-2.5 text-white placeholder-white/60 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white/25 transition-all text-right dir-ltr"
-                    />
-                  </div>
-
-                  <!-- 3. البريد الإلكتروني -->
-                  <div>
-                    <label
-                      class="block text-xs font-bold text-white/90 mb-1"
-                      for="studyEmail"
-                      >البريد الإلكتروني</label
-                    >
-                    <input
-                      type="email"
-                      id="studyEmail"
-                      name="email"
-                      required
-                      placeholder="البريد الإلكتروني"
-                      class="w-full bg-white/20 border border-white/30 rounded-xl px-4 py-2.5 text-white placeholder-white/60 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white/25 transition-all text-right"
-                      dir="ltr"
-                    />
-                  </div>
-
-                  <!-- 4. مجال المشروع -->
-                  <div>
-                    <label class="block text-xs font-bold text-white/90 mb-1"
-                      >مجال المشروع</label
-                    >
-                    <div class="relative">
-                      <select
-                        name="sector"
-                        required
-                        class="w-full appearance-none bg-white/20 border border-white/30 rounded-xl px-4 py-2.5 text-white/95 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white/25 transition-all text-right pr-4 pl-10 cursor-pointer"
-                      >
-                        <option value="" class="text-slate-800">
-                          مجال المشروع
-                        </option>
-                        <option value="tech" class="text-slate-800">
-                          التكنولوجيا والاتصالات
-                        </option>
-                        <option value="tourism" class="text-slate-800">
-                          السياحة والضيافة والترفيه
-                        </option>
-                        <option value="trade" class="text-slate-800">
-                          التجارة والتجزئة
-                        </option>
-                        <option value="industry" class="text-slate-800">
-                          الصناعة والإنتاج
-                        </option>
-                        <option value="services" class="text-slate-800">
-                          الخدمات المهنية والطبية
-                        </option>
-                        <option value="realestate" class="text-slate-800">
-                          العقارات والمقاولات
-                        </option>
-                        <option value="transport" class="text-slate-800">
-                          النقل واللوجستيات
-                        </option>
-                        <option value="agriculture" class="text-slate-800">
-                          الزراعة والاستزراع
-                        </option>
-                      </select>
-                      <div
-                        class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-white/80"
-                      >
-                        <svg
-                          class="w-4 h-4 fill-none stroke-current stroke-2"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- 5. حجم الاستثمار -->
-                  <div>
-                    <label class="block text-xs font-bold text-white/90 mb-1"
-                      >حجم الاستثمار</label
-                    >
-                    <div class="relative">
-                      <select
-                        name="investmentSize"
-                        required
-                        class="w-full appearance-none bg-white/20 border border-white/30 rounded-xl px-4 py-2.5 text-white/95 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400 focus:bg-white/25 transition-all text-right pr-4 pl-10 cursor-pointer"
-                      >
-                        <option value="" class="text-slate-800">
-                          حجم الاستثمار
-                        </option>
-                        <option value="1" class="text-slate-800">
-                          أقل من 500,000 ريال
-                        </option>
-                        <option value="2" class="text-slate-800">
-                          500,000 - 2,000,000 ريال
-                        </option>
-                        <option value="3" class="text-slate-800">
-                          2,000,000 - 10,000,000 ريال
-                        </option>
-                        <option value="4" class="text-slate-800">
-                          أكثر من 10,000,000 ريال
-                        </option>
-                      </select>
-                      <div
-                        class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-white/80"
-                      >
-                        <svg
-                          class="w-4 h-4 fill-none stroke-current stroke-2"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- 6. زر إرسال البرتقالي matching Image 4 -->
-                  <button
-                    type="submit"
-                    class="w-full mt-2 bg-gradient-to-r from-[#FF8C00] via-[#F57C00] to-[#E65100] hover:from-[#FFA726] hover:to-[#EF6C00] text-white font-heading font-black py-3.5 px-6 rounded-xl shadow-lg hover:shadow-orange-500/30 hover:scale-[1.01] active:scale-[0.98] transition-all duration-200 text-base cursor-pointer"
-                  >
-                    إرسال
-                  </button>
-
-                  <div
-                    id="orderStudyFeedback"
-                    class="hidden p-3 rounded-xl text-center text-xs font-bold transition-all"
-                  ></div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-         2. SECTION: أهم القطاعات (KEY SECTORS) - Matching User Mockup (#F2F9F1)
-         ========================================================================== -->
-      <section class="py-12 sm:py-14 bg-[#F8FAF9]">
-        <div class="max-w-7xl mx-auto px-4 md:px-8">
-          <div class="text-center mb-8 sm:mb-12">
-            <h2
-              class="text-2xl sm:text-3xl lg:text-4xl font-heading font-black text-[#0B4D2C]"
-            >
-              أهم القطاعات
-            </h2>
-            <div class="w-16 h-1 bg-[#107A48] rounded-full mx-auto mt-3"></div>
-          </div>
-
-          <!-- 8 Sectors: 4 Top / 4 Bottom (Desktop) / 2 Cols (Mobile) matching Image 1 -->
-          <div
-            class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
-          >
-            <!-- 1. التكنولوجيا (Technology) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Laptop + Smartphone Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="2" y="4" width="13" height="9" rx="1.5" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M1 16h15" />
-                  <rect x="15.5" y="8" width="6.5" height="11" rx="1.5" />
-                  <circle cx="18.75" cy="16.5" r=".75" fill="currentColor" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                التكنولوجيا
-              </h3>
-            </div>
-
-            <!-- 2. السياحة (Tourism) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Hot Air Balloon + Landmark Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <circle cx="12" cy="8" r="6" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 8c0 3 2.5 5 2.5 5s2.5-2 2.5-5" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 14h3v2h-3z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 20l5-8 5 8H3z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 20l3-5 4 5H14z" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                السياحة
-              </h3>
-            </div>
-
-            <!-- 3. التجارة (Trade) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Storefront with Awning Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 9l1-5h16l1 5" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a3 3 0 006 0 3 3 0 006 0 3 3 0 006 0" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 9v11a1 1 0 001 1h14a1 1 0 001-1V9" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 21v-6a1 1 0 011-1h4a1 1 0 011 1v6" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                التجارة
-              </h3>
-            </div>
-
-            <!-- 4. الصناعة (Industry) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Factory with Smokestack Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M2 20h20" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 20V10l5 4V10l5 4V4h6v16" />
-                  <line x1="16" y1="8" x2="18" y2="8" stroke-linecap="round" stroke-linejoin="round" />
-                  <line x1="16" y1="12" x2="18" y2="12" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                الصناعة
-              </h3>
-            </div>
-
-            <!-- 5. الخدمات (Services) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Airplane in Flight with Clouds Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6.5l4-3 1.5.5-2 5 5 3.5 3-.5 1 1-3.5 2-1 3.5-1.5.5-1-3-4.5-1.5-3.5 4.5.5 2-1 1-2.5-3-3-2.5 1-1 2 .5 4.5-3.5-1-4.5z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 18c1.5-1 3.5-1 5 0M14 20c1.5-1 3.5-1 5 0" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                الخدمات
-              </h3>
-            </div>
-
-            <!-- 6. العقارات (Real Estate) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- House with Door & Window Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 10.5L12 3l9 7.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1v-9.5z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 21v-6a1 1 0 011-1h4a1 1 0 011 1v6" />
-                  <rect x="13.5" y="8" width="3.5" height="3.5" rx=".5" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                العقارات
-              </h3>
-            </div>
-
-            <!-- 7. النقل (Transport / Logistics) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Delivery Truck Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <rect x="1" y="6" width="13" height="10" rx="1.5" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 9h4l3 3v4h-7V9z" />
-                  <circle cx="5.5" cy="18" r="2" />
-                  <circle cx="17.5" cy="18" r="2" />
-                  <line x1="7.5" y1="18" x2="15.5" y2="18" stroke-linecap="round" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                النقل
-              </h3>
-            </div>
-
-            <!-- 8. الزراعة (Agriculture) -->
-            <div
-              class="bg-[#F2F9F1] rounded-2xl sm:rounded-3xl border border-[#DCEAD9]/90 p-4 sm:p-5 min-h-[175px] sm:min-h-[195px] flex flex-col items-center justify-center text-center shadow-xs hover:shadow-md hover:border-[#107A48]/60 hover:-translate-y-1 transition-all group cursor-pointer"
-            >
-              <div
-                class="w-24 h-24 sm:w-26 sm:h-26 rounded-full bg-[#E2F0E0] text-[#107A48] flex items-center justify-center mb-2 sm:mb-2.5 group-hover:scale-105 transition-transform"
-              >
-                <!-- Sprout / Plant growing in field Outline -->
-                <svg
-                  class="w-14 h-14 sm:w-16 sm:h-16 fill-none stroke-current stroke-[1.8]"
-                  viewBox="0 0 24 24"
-                >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 21V10" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 10c0-4.5 4-7 8-7-1 5-4.5 7-8 7z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 14c0-3.5-3-5.5-6-5.5.8 4 3.5 5.5 6 5.5z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 21c3-1 6-1 9 0 3-1 6-1 9 0" />
-                </svg>
-              </div>
-              <h3
-                class="text-xl sm:text-2xl font-heading font-black text-slate-800 group-hover:text-[#107A48] transition-colors"
-              >
-                الزراعة
-              </h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================================================
+const newStatsSection = `<!-- ==========================================================================
          3. SECTION: خبرة أكثر من 7 سنوات في إعداد دراسات الجدوى
          ========================================================================== -->
-      <section class="py-8 sm:py-10 bg-[#F8FAF9]">
+      <section class="py-10 sm:py-14 bg-[#F8FAF9]">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
           <div
             class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch"
@@ -622,22 +31,22 @@
                 </h2>
 
                 <p
-                  class="text-sm sm:text-base text-slate-600 font-normal leading-relaxed mt-2.5"
+                  class="text-sm sm:text-base text-slate-800 font-bold leading-relaxed mt-2.5"
                 >
-                  خبرة تزيد عن 7 سنوات في إعداد دراسات الجدوى المتكاملة، نعتمد
-                  على منهجيات علمية وخبرات عميقة لتقديم تحليلات دقيقة.
+                  خبرة تزيد عن 7 سنوات في إعداد دراسات الجدوى المتكاملة، نعتمد على
+                  منهجيات علمية وخبرات عميقة لتقديم تحليلات دقيقة.
                 </p>
 
                 <!-- 4 Bullet points with green circular checkmarks matching user image -->
                 <ul
-                  class="space-y-2.5 pt-3 text-xs sm:text-sm font-medium text-slate-700"
+                  class="space-y-2 pt-3 text-xs sm:text-sm font-bold text-slate-900"
                 >
                   <li class="flex items-center gap-2.5">
                     <span
-                      class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#287b3f] text-white flex items-center justify-center shrink-0 shadow-xs"
+                      class="w-5 h-5 rounded-full bg-[#DCE9D8] text-[#107A48] flex items-center justify-center shrink-0 border border-[#107A48]/30"
                     >
                       <svg
-                        class="w-3.5 h-3.5 stroke-white stroke-[2.5]"
+                        class="w-3.5 h-3.5 stroke-current stroke-2"
                         fill="none"
                         viewBox="0 0 24 24"
                       >
@@ -652,10 +61,10 @@
                   </li>
                   <li class="flex items-center gap-2.5">
                     <span
-                      class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#287b3f] text-white flex items-center justify-center shrink-0 shadow-xs"
+                      class="w-5 h-5 rounded-full bg-[#DCE9D8] text-[#107A48] flex items-center justify-center shrink-0 border border-[#107A48]/30"
                     >
                       <svg
-                        class="w-3.5 h-3.5 stroke-white stroke-[2.5]"
+                        class="w-3.5 h-3.5 stroke-current stroke-2"
                         fill="none"
                         viewBox="0 0 24 24"
                       >
@@ -670,10 +79,10 @@
                   </li>
                   <li class="flex items-center gap-2.5">
                     <span
-                      class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#287b3f] text-white flex items-center justify-center shrink-0 shadow-xs"
+                      class="w-5 h-5 rounded-full bg-[#DCE9D8] text-[#107A48] flex items-center justify-center shrink-0 border border-[#107A48]/30"
                     >
                       <svg
-                        class="w-3.5 h-3.5 stroke-white stroke-[2.5]"
+                        class="w-3.5 h-3.5 stroke-current stroke-2"
                         fill="none"
                         viewBox="0 0 24 24"
                       >
@@ -688,10 +97,10 @@
                   </li>
                   <li class="flex items-center gap-2.5">
                     <span
-                      class="w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full bg-[#287b3f] text-white flex items-center justify-center shrink-0 shadow-xs"
+                      class="w-5 h-5 rounded-full bg-[#DCE9D8] text-[#107A48] flex items-center justify-center shrink-0 border border-[#107A48]/30"
                     >
                       <svg
-                        class="w-3.5 h-3.5 stroke-white stroke-[2.5]"
+                        class="w-3.5 h-3.5 stroke-current stroke-2"
                         fill="none"
                         viewBox="0 0 24 24"
                       >
@@ -707,65 +116,68 @@
                 </ul>
               </div>
 
-              <!-- 4 Badges in a Row matching user image 2 (Rosette, Consultant, Target, Plant) -->
-              <div class="flex items-center gap-3 pt-3">
-                <!-- Badge 1 (Rightmost): خبرة ونمو العملاء وضمان الجودة (Quality Medal & Ribbon) -->
+              <!-- 4 Badges in a Row matching user image - enlarged SVGs -->
+              <div class="flex items-center gap-3 pt-4">
+                <!-- Badge 1: Document/Certificate -->
                 <div
-                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/30 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform p-1"
-                  title="خبرة ونمو العملاء وضمان الجودة"
+                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/25 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform"
+                  title="معتمد"
                 >
                   <svg
-                    class="w-8 h-8 sm:w-9 sm:h-9 fill-none stroke-current stroke-[1.8]"
+                    class="w-7 h-7 sm:w-8 sm:h-8 fill-none stroke-current stroke-[2]"
                     viewBox="0 0 24 24"
                   >
-                    <circle cx="12" cy="9" r="6" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.5l.8 1.6 1.8.3-1.3 1.3.3 1.8-1.6-.9-1.6.9.3-1.8-1.3-1.3 1.8-.3z" fill="currentColor" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.2 14L7 21.5l5-2.5 5 2.5-1.2-7.5" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
                   </svg>
                 </div>
-
-                <!-- Badge 2 (Second from Right): مرونة مع كافة التخصصات في نماذج الفحص (Multi-specialty Layers) -->
+                <!-- Badge 2: Target / Bullseye -->
                 <div
-                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/30 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform p-1"
-                  title="مرونة مع كافة التخصصات"
+                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/25 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform"
+                  title="دقة الاستهداف"
                 >
                   <svg
-                    class="w-8 h-8 sm:w-9 sm:h-9 fill-none stroke-current stroke-[1.8]"
+                    class="w-7 h-7 sm:w-8 sm:h-8 fill-none stroke-current stroke-[2]"
                     viewBox="0 0 24 24"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2 17l10 5 10-5" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M2 12l10 5 10-5" />
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="5" />
+                    <circle cx="12" cy="12" r="1.5" />
                   </svg>
                 </div>
-
-                <!-- Badge 3 (Third from Right): تميز عبر الفحص وأدق مراجعة (Precision Audit & Inspection) -->
+                <!-- Badge 3: Specialist / Consultant -->
                 <div
-                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/30 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform p-1"
-                  title="تميز عبر الفحص وأدق مراجعة"
+                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/25 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform"
+                  title="فريق استشاري"
                 >
                   <svg
-                    class="w-8 h-8 sm:w-9 sm:h-9 fill-none stroke-current stroke-[1.8]"
+                    class="w-7 h-7 sm:w-8 sm:h-8 fill-none stroke-current stroke-[2]"
                     viewBox="0 0 24 24"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
-                    <circle cx="16" cy="16" r="3" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M18.5 18.5L21 21" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                    />
                   </svg>
                 </div>
-
-                <!-- Badge 4 (Leftmost): جودة وضمان مستدام (Sustainable Quality & Guarantee Shield) -->
+                <!-- Badge 4: Security / Shield Quality -->
                 <div
-                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/30 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform p-1"
-                  title="جودة وضمان مستدام"
+                  class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-[#DCE9D8] border border-[#107A48]/25 flex items-center justify-center text-[#107A48] shadow-xs hover:scale-105 transition-transform"
+                  title="معايير الأمان"
                 >
                   <svg
-                    class="w-8 h-8 sm:w-9 sm:h-9 fill-none stroke-current stroke-[1.8]"
+                    class="w-7 h-7 sm:w-8 sm:h-8 fill-none stroke-current stroke-[2]"
                     viewBox="0 0 24 24"
                   >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
                   </svg>
                 </div>
               </div>
@@ -886,14 +298,22 @@
             </div>
           </div>
         </div>
-      </section>
+      </section>`;
 
-      <!-- ==========================================================================
+content = content.replace(statsRegex, newStatsSection);
+
+// ============================================================================
+// 2. TIMELINE SECTION (Section 4: كيف تتم الدراسة داخل دراسة وجدوى؟)
+// Enlarge step numbers, titles, and SVGs, fully responsive
+// ============================================================================
+const timelineRegex = /<!-- ={10,}\s*4\.\s*SECTION:\s*كيف تتم الدراسة داخل دراسة وجدوى[\s\S]*?<\/section>/;
+
+const newTimelineSection = `<!-- ==========================================================================
          4. SECTION: كيف تتم الدراسة داخل دراسة وجدوى؟
          Enlarged numbers, titles, and SVGs - Fully responsive
          ========================================================================== -->
       <section
-        class="py-8 sm:py-10 bg-[#F8FAF9] relative overflow-hidden"
+        class="py-10 sm:py-14 bg-[#F8FAF9] relative overflow-hidden"
         id="process"
       >
         <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
@@ -991,23 +411,7 @@
                     <div
                       class="process-card p-3.5 sm:p-4 px-5 sm:px-7 flex items-center justify-between gap-3 sm:gap-4 group cursor-default w-full"
                     >
-                      <!-- 1. الرقم على اليمين بدون بوكس - مكبر -->
-                      <span
-                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
-                      >
-                        2
-                      </span>
-
-                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
-                      <div class="flex-1 text-center px-2">
-                        <h3
-                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
-                        >
-                          التواصل معنا
-                        </h3>
-                      </div>
-
-                      <!-- 3. الأيقونة على الشمال - بدون بوكس ومكبرة -->
+                      <!-- 1. الأيقونة على اليمين - بدون بوكس ومكبرة -->
                       <span
                         class="text-[#287b3f] shrink-0 group-hover:scale-110 transition-transform"
                       >
@@ -1022,6 +426,22 @@
                             d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
                           />
                         </svg>
+                      </span>
+
+                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
+                      <div class="flex-1 text-center px-2">
+                        <h3
+                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
+                        >
+                          التواصل معنا
+                        </h3>
+                      </div>
+
+                      <!-- 3. الرقم على الشمال - بدون بوكس مكبر -->
+                      <span
+                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
+                      >
+                        2
                       </span>
                     </div>
                   </div>
@@ -1095,23 +515,7 @@
                     <div
                       class="process-card p-3.5 sm:p-4 px-5 sm:px-7 flex items-center justify-between gap-3 sm:gap-4 group cursor-default w-full"
                     >
-                      <!-- 1. الرقم على اليمين بدون بوكس - مكبر -->
-                      <span
-                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
-                      >
-                        4
-                      </span>
-
-                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
-                      <div class="flex-1 text-center px-2">
-                        <h3
-                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
-                        >
-                          المراجعة الفنية
-                        </h3>
-                      </div>
-
-                      <!-- 3. الأيقونة على الشمال - بدون بوكس ومكبرة -->
+                      <!-- 1. الأيقونة على اليمين - بدون بوكس ومكبرة -->
                       <span
                         class="text-[#287b3f] shrink-0 group-hover:scale-110 transition-transform"
                       >
@@ -1127,6 +531,22 @@
                           />
                           <circle cx="12" cy="12" r="3" />
                         </svg>
+                      </span>
+
+                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
+                      <div class="flex-1 text-center px-2">
+                        <h3
+                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
+                        >
+                          المراجعة الفنية
+                        </h3>
+                      </div>
+
+                      <!-- 3. الرقم على الشمال - بدون بوكس مكبر -->
+                      <span
+                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
+                      >
+                        4
                       </span>
                     </div>
                   </div>
@@ -1200,23 +620,7 @@
                     <div
                       class="process-card p-3.5 sm:p-4 px-5 sm:px-7 flex items-center justify-between gap-3 sm:gap-4 group cursor-default w-full"
                     >
-                      <!-- 1. الرقم على اليمين بدون بوكس - مكبر -->
-                      <span
-                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
-                      >
-                        6
-                      </span>
-
-                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
-                      <div class="flex-1 text-center px-2">
-                        <h3
-                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
-                        >
-                          الدراسة المالية
-                        </h3>
-                      </div>
-
-                      <!-- 3. الأيقونة على الشمال - بدون بوكس ومكبرة -->
+                      <!-- 1. الأيقونة على اليمين - بدون بوكس ومكبرة -->
                       <span
                         class="text-[#287b3f] shrink-0 group-hover:scale-110 transition-transform"
                       >
@@ -1231,6 +635,22 @@
                             d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                           />
                         </svg>
+                      </span>
+
+                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
+                      <div class="flex-1 text-center px-2">
+                        <h3
+                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
+                        >
+                          الدراسة المالية
+                        </h3>
+                      </div>
+
+                      <!-- 3. الرقم على الشمال - بدون بوكس مكبر -->
+                      <span
+                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
+                      >
+                        6
                       </span>
                     </div>
                   </div>
@@ -1304,23 +724,7 @@
                     <div
                       class="process-card p-3.5 sm:p-4 px-5 sm:px-7 flex items-center justify-between gap-3 sm:gap-4 group cursor-default w-full"
                     >
-                      <!-- 1. الرقم على اليمين بدون بوكس - مكبر -->
-                      <span
-                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
-                      >
-                        7
-                      </span>
-
-                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
-                      <div class="flex-1 text-center px-2">
-                        <h3
-                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
-                        >
-                          اتخاذ القرار
-                        </h3>
-                      </div>
-
-                      <!-- 3. الأيقونة على الشمال - بدون بوكس ومكبرة -->
+                      <!-- 1. الأيقونة على اليمين - بدون بوكس ومكبرة -->
                       <span
                         class="text-[#287b3f] shrink-0 group-hover:scale-110 transition-transform"
                       >
@@ -1335,6 +739,22 @@
                             d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
                           />
                         </svg>
+                      </span>
+
+                      <!-- 2. اسم الخطوة في المنتصف - خط مكبر وأوضح -->
+                      <div class="flex-1 text-center px-2">
+                        <h3
+                          class="text-lg sm:text-xl lg:text-2xl font-black font-heading text-slate-800 leading-tight group-hover:text-[#287b3f] transition-colors"
+                        >
+                          اتخاذ القرار
+                        </h3>
+                      </div>
+
+                      <!-- 3. الرقم على الشمال - بدون بوكس مكبر -->
+                      <span
+                        class="font-black font-heading text-3xl sm:text-4xl lg:text-5xl text-[#287b3f] shrink-0 select-none"
+                      >
+                        7
                       </span>
                     </div>
                   </div>
@@ -1680,28 +1100,36 @@
             </div>
           </div>
         </div>
-      </section>
+      </section>`;
 
-      <!-- ==========================================================================
+content = content.replace(timelineRegex, newTimelineSection);
+
+// ============================================================================
+// 3. PAYMENTS & CONTACT SECTION (Section 5)
+// Use real SVGs for each payment method and filter social media
+// ============================================================================
+const paymentsRegex = /<!-- ={10,}\s*5\.\s*SECTION:\s*تواصل معنا & وسائل الدفع[\s\S]*?<\/section>/;
+
+const newPaymentsSection = `<!-- ==========================================================================
          5. SECTION: تواصل معنا & وسائل الدفع (PAYMENTS & CONTACT)
          ========================================================================== -->
-      <section class="py-6 sm:py-8 bg-[#F8FAF9]">
+      <section class="py-10 sm:py-14 bg-[#F8FAF9]">
         <div class="max-w-5xl mx-auto px-4 md:px-8">
           <!-- Main White Card Container (Dual Columns) -->
           <div
-            class="bg-white rounded-3xl p-5 sm:p-7 md:p-8 shadow-soft border border-slate-100"
+            class="bg-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-soft border border-slate-100"
           >
             <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <!-- RIGHT SIDE (in RTL): تواصل معنا (~ 5 cols) - Enlarged icon & typography -->
+              <!-- RIGHT SIDE (in RTL): تواصل معنا (~ 5 cols) -->
               <div
-                class="md:col-span-5 text-center flex flex-col items-center justify-center space-y-3.5 border-b md:border-b-0 md:border-l border-slate-300 md:pl-8 pb-6 md:pb-0"
+                class="md:col-span-5 text-center flex flex-col items-center justify-center space-y-3 md:border-l md:border-slate-100 md:pl-8"
               >
-                <!-- Circular Icon Badge (Enlarged) -->
+                <!-- Circular Icon Badge -->
                 <div
-                  class="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#EAF5EF] border-2 border-[#107A48]/30 text-[#107A48] flex items-center justify-center shadow-sm mb-1"
+                  class="w-16 h-16 rounded-full bg-[#EAF5EF] border border-[#107A48]/20 text-[#107A48] flex items-center justify-center shadow-xs mb-1"
                 >
                   <svg
-                    class="w-10 h-10 sm:w-12 sm:h-12 stroke-current stroke-[2]"
+                    class="w-8 h-8 stroke-current stroke-[1.8]"
                     fill="none"
                     viewBox="0 0 24 24"
                   >
@@ -1714,152 +1142,125 @@
                 </div>
 
                 <h3
-                  class="text-2xl sm:text-3xl font-heading font-black text-slate-900"
+                  class="text-xl sm:text-2xl font-heading font-black text-slate-800"
                 >
                   تواصل معنا
                 </h3>
 
                 <p
-                  class="text-sm sm:text-base text-slate-700 font-bold leading-relaxed max-w-sm"
+                  class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed max-w-xs"
                 >
                   يسعدنا تلقي استفساراتكم والرد عليها في أي وقت، فريقنا جاهز
                   لمساعدتكم في كل خطوة.
                 </p>
               </div>
 
-              <!-- LEFT SIDE (in RTL): وسائل الدفع (~ 7 cols) 4 Top / 2 Bottom -->
+              <!-- LEFT SIDE (in RTL): وسائل الدفع (~ 7 cols) Real SVGs -->
               <div class="md:col-span-7 text-center">
                 <h3
-                  class="text-xl sm:text-2xl font-heading font-black text-slate-900 mb-5 sm:mb-6"
+                  class="text-xl sm:text-2xl font-heading font-black text-slate-800 mb-6"
                 >
                   وسائل الدفع
                 </h3>
 
-                <!-- Payment Logos Grid: 9 Footer SVGs (4 Top, 4 Middle, 1 Centered at Bottom) -->
-                <div class="space-y-3 max-w-lg mx-auto">
-                  <!-- Row 1: 4 Items -->
-                  <div class="grid grid-cols-4 gap-2.5 sm:gap-3">
-                    <!-- 1. Visa Electron -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="Visa Electron"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/visa-electron.svg"
-                        alt="Visa Electron"
-                        class="h-7 sm:h-8 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 2. Maestro -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="Maestro"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/maestro.svg"
-                        alt="Maestro"
-                        class="h-6 sm:h-7 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 3. PayPal -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="PayPal"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/paypal.svg"
-                        alt="PayPal"
-                        class="h-7 sm:h-8 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 4. Payoneer -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="Payoneer"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/payoneer.svg"
-                        alt="Payoneer"
-                        class="h-6 sm:h-7 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                <!-- Payment Logos Grid using Official Real SVGs -->
+                <div
+                  class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto"
+                >
+                  <!-- 1. مدى mada -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/mada.svg"
+                      alt="مدى - mada"
+                      class="h-6 sm:h-7 max-w-[85px] w-auto object-contain"
+                      loading="lazy"
+                    />
                   </div>
 
-                  <!-- Row 2: 4 Items -->
-                  <div class="grid grid-cols-4 gap-2.5 sm:gap-3">
-                    <!-- 5. مصرف الراجحي -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="مصرف الراجحي"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/alrajhi.svg"
-                        alt="مصرف الراجحي"
-                        class="h-7 sm:h-8 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 6. بنك الرياض -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="بنك الرياض"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/riyad-bank.svg"
-                        alt="بنك الرياض"
-                        class="h-7 sm:h-8 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 7. البنك الأهلي المصري -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="البنك الأهلي المصري"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/nbe.svg"
-                        alt="البنك الأهلي المصري"
-                        class="h-7 sm:h-8 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
-
-                    <!-- 8. Skrill -->
-                    <div
-                      class="h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="Skrill"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/skrill.svg"
-                        alt="Skrill"
-                        class="h-6 sm:h-7 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                  <!-- 2. فيزا VISA -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/visa.svg"
+                      alt="فيزا - VISA"
+                      class="h-5 sm:h-6 max-w-[75px] w-auto object-contain"
+                      loading="lazy"
+                    />
                   </div>
 
-                  <!-- Row 3: 1 Item Centered at natural size (Inverted Pyramid) -->
-                  <div class="flex justify-center">
-                    <div
-                      class="w-[calc(25%-0.5rem)] sm:w-[calc(25%-0.6rem)] h-12 sm:h-14 px-2 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
-                      title="Western Union"
-                    >
-                      <img
-                        src="./assets/svgs/payments-ways/western-union.svg"
-                        alt="Western Union"
-                        class="h-6 sm:h-7 max-w-full object-contain"
-                        loading="lazy"
-                      />
-                    </div>
+                  <!-- 3. ماستركارد Mastercard -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/mastercard.svg"
+                      alt="ماستركارد - Mastercard"
+                      class="h-6 sm:h-7 max-w-[60px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- 4. بايبال PayPal -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/paypal.svg"
+                      alt="بايبال - PayPal"
+                      class="h-5 sm:h-6 max-w-[80px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- 5. بايونير Payoneer -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/payoneer.svg"
+                      alt="بايونير - Payoneer"
+                      class="h-5 sm:h-6 max-w-[85px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- 6. مصرف الراجحي Al Rajhi -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/alrajhi.svg"
+                      alt="مصرف الراجحي - Al Rajhi Bank"
+                      class="h-6 sm:h-7 max-w-[85px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- 7. بنك الرياض Riyad Bank -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/riyad-bank.svg"
+                      alt="بنك الرياض - Riyad Bank"
+                      class="h-6 sm:h-7 max-w-[85px] w-auto object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <!-- 8. تحويل بنكي Bank Transfer -->
+                  <div
+                    class="h-12 sm:h-13 px-4 rounded-xl bg-white border border-slate-200/90 flex items-center justify-center shadow-xs hover:shadow-md hover:border-[#107A48]/50 transition-all"
+                  >
+                    <img
+                      src="./assets/svgs/payments-ways/bank-transfer.svg"
+                      alt="تحويل بنكي - Bank Transfer"
+                      class="h-6 sm:h-7 max-w-[90px] w-auto object-contain"
+                      loading="lazy"
+                    />
                   </div>
                 </div>
               </div>
@@ -1931,9 +1332,18 @@
             </a>
           </div>
         </div>
-      </section>
+      </section>`;
 
-      <!-- ==========================================================================
+content = content.replace(paymentsRegex, newPaymentsSection);
+
+// ============================================================================
+// 4. FUNDING PARTNERS SECTION (Section 6)
+// Enlarge logo inside boxes without changing box dimensions (h-24 sm:h-28)
+// Prevent dots from overlapping boxes by adding bottom padding pb-14 sm:pb-16
+// ============================================================================
+const fundingRegex = /<!-- ={10,}\s*6\.\s*SECTION:\s*جهات الدعم والتمويل[\s\S]*?<\/section>/;
+
+const newFundingSection = `<!-- ==========================================================================
          6. SECTION: جهات الدعم والتمويل (FUNDING PARTNERS)
          ========================================================================== -->
       <section class="py-10 sm:py-14 bg-white relative overflow-hidden">
@@ -1959,7 +1369,7 @@
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/شعار-ريادة-1.jpg"
@@ -1968,7 +1378,7 @@
                         this.src = './assets/images/funding/partner-1.jpg';
                       "
                       alt="ريادة"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -1977,7 +1387,7 @@
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/شعار-بنك-التسليف-1.jpg"
@@ -1986,7 +1396,7 @@
                         this.src = './assets/images/funding/partner-2.jpg';
                       "
                       alt="بنك التسليف"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -1995,7 +1405,7 @@
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/شعار-صندوق-التنمية-الزراعية-1.jpg"
@@ -2004,7 +1414,7 @@
                         this.src = './assets/images/funding/partner-3.jpg';
                       "
                       alt="صندوق التنمية الزراعية"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2013,7 +1423,7 @@
                 <!-- Slide 4 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/شعار-صندوق-التنمية-الصناعي-1.jpg"
@@ -2022,7 +1432,7 @@
                         this.src = './assets/images/funding/partner-4.jpg';
                       "
                       alt="صندوق التنمية الصناعي"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2031,7 +1441,7 @@
                 <!-- Slide 5 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/شعار-منشآت-1.jpg"
@@ -2040,7 +1450,7 @@
                         this.src = './assets/images/funding/partner-5.jpg';
                       "
                       alt="منشآت"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2049,7 +1459,7 @@
                 <!-- Slide 6 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/بادر.jpg"
@@ -2058,7 +1468,7 @@
                         this.src = './assets/images/funding/partner-6.jpg';
                       "
                       alt="بادر"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2067,7 +1477,7 @@
                 <!-- Slide 7 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/12-1.jpg"
@@ -2076,7 +1486,7 @@
                         this.src = './assets/images/funding/partner-7.jpg';
                       "
                       alt="جهة تمويل 12-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2085,7 +1495,7 @@
                 <!-- Slide 8 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/11-1.jpg"
@@ -2094,7 +1504,7 @@
                         this.src = './assets/images/funding/partner-8.jpg';
                       "
                       alt="جهة تمويل 11-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2103,7 +1513,7 @@
                 <!-- Slide 9 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/10-1.jpg"
@@ -2112,7 +1522,7 @@
                         this.src = './assets/images/funding/partner-9.jpg';
                       "
                       alt="جهة تمويل 10-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2121,7 +1531,7 @@
                 <!-- Slide 10 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/9-1.jpg"
@@ -2130,7 +1540,7 @@
                         this.src = './assets/images/funding/partner-10.jpg';
                       "
                       alt="جهة تمويل 9-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2139,7 +1549,7 @@
                 <!-- Slide 11 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/6.jpg"
@@ -2148,7 +1558,7 @@
                         this.src = './assets/images/funding/partner-11.jpg';
                       "
                       alt="جهة تمويل 6"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2157,7 +1567,7 @@
                 <!-- Slide 12 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/5-1.jpg"
@@ -2166,7 +1576,7 @@
                         this.src = './assets/images/funding/partner-12.jpg';
                       "
                       alt="جهة تمويل 5-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2175,7 +1585,7 @@
                 <!-- Slide 13 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/5.jpg"
@@ -2184,7 +1594,7 @@
                         this.src = './assets/images/funding/partner-13.jpg';
                       "
                       alt="جهة تمويل 5"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2193,7 +1603,7 @@
                 <!-- Slide 14 -->
                 <div class="swiper-slide">
                   <div
-                    class="bg-white rounded-2xl border border-gray-200/90 p-1.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group overflow-hidden"
+                    class="bg-white rounded-2xl border border-gray-200/90 p-2 sm:p-2.5 h-24 sm:h-28 flex items-center justify-center shadow-xs hover:shadow-md hover:border-emerald-400 transition-all group"
                   >
                     <img
                       src="https://drasawgdwa.com/wp-content/uploads/2022/09/4-1.jpg"
@@ -2202,7 +1612,7 @@
                         this.src = './assets/images/funding/partner-14.jpg';
                       "
                       alt="جهة تمويل 4-1"
-                      class="h-20 sm:h-24 w-full max-w-[95%] object-contain scale-125 sm:scale-135 transition-transform duration-300 group-hover:scale-145"
+                      class="max-h-20 sm:max-h-22 max-w-[92%] w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -2251,81 +1661,39 @@
             </button>
           </div>
         </div>
-      </section>
-    </main>
+      </section>`;
 
-    <!-- Footer Component Placeholder -->
-    <div id="footer-file"></div>
+content = content.replace(fundingRegex, newFundingSection);
 
-    <!-- Local Swiper JS -->
-    <script src="./assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="./assets/js/header.js"></script>
-    <script src="./assets/js/footer.js"></script>
-    <script src="./assets/js/script.js"></script>
+fs.writeFileSync(orderStudyPath, content, 'utf8');
+console.log('Successfully updated order-study.html with all requested enhancements!');
 
-    <script>
-      // Initialize Swiper for Funding Group Slides
-      document.addEventListener("DOMContentLoaded", () => {
-        if (typeof Swiper !== "undefined") {
-          new Swiper(".funding-single-row-swiper", {
-            slidesPerView: 2,
-            spaceBetween: 16,
-            loop: true,
-            autoplay: {
-              delay: 2500,
-              disableOnInteraction: false,
-            },
-            breakpoints: {
-              480: { slidesPerView: 2, spaceBetween: 16 },
-              640: { slidesPerView: 3, spaceBetween: 20 },
-              768: { slidesPerView: 4, spaceBetween: 20 },
-              1024: { slidesPerView: 5, spaceBetween: 24 },
-            },
-            navigation: {
-              nextEl: ".funding-swiper-next",
-              prevEl: ".funding-swiper-prev",
-            },
-            pagination: {
-              el: ".funding-pagination",
-              clickable: true,
-            },
-          });
-        }
-
-        // Form submission feedback handler
-        const form = document.getElementById("orderStudyPageForm");
-        const feedback = document.getElementById("orderStudyFeedback");
-
-        if (form && feedback) {
-          form.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
-            const originalText = btn.innerHTML;
-
-            btn.disabled = true;
-            btn.innerHTML = `
-              <span class="inline-flex items-center gap-2">
-                <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                <span>جاري إرسال طلبك...</span>
-              </span>
-            `;
-
-            setTimeout(() => {
-              feedback.classList.remove("hidden");
-              feedback.className =
-                "p-3 rounded-xl text-center text-xs font-bold bg-emerald-500/90 text-white shadow-md border border-emerald-300";
-              feedback.textContent =
-                "تم استلام طلبك بنجاح! سيتواصل معك أحد مستشارينا خلال أقل من ساعتين.";
-              form.reset();
-              btn.disabled = false;
-              btn.innerHTML = originalText;
-            }, 1000);
-          });
-        }
-      });
-    </script>
-  </body>
-</html>
+// Add CSS to styles.css for funding pagination if not already there
+let cssContent = fs.readFileSync(stylesPath, 'utf8');
+if (!cssContent.includes('.funding-pagination')) {
+  const customCss = `
+/* Funding Partners Swiper & Pagination Dots Fix */
+.funding-single-row-swiper {
+  padding-bottom: 3.5rem !important;
+}
+.funding-pagination {
+  bottom: 0 !important;
+  position: absolute;
+}
+.funding-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: #cbd5e1;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.funding-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 9999px;
+  background-color: #107a48;
+}
+`;
+  cssContent += customCss;
+  fs.writeFileSync(stylesPath, cssContent, 'utf8');
+  console.log('Successfully updated styles.css with funding pagination styles!');
+}

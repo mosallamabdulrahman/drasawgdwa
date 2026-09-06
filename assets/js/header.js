@@ -20,14 +20,11 @@ function renderHeader() {
     <aside class="top-bar bg-brand-600 text-white py-2.5 text-xs md:text-sm border-b border-white/10 transition-transform duration-300 relative z-50">
       <div class="max-w-7xl mx-auto px-4 md:px-8 flex justify-center md:justify-between items-center">
         <div class="flex items-center justify-center flex-wrap gap-3 sm:gap-5 text-white/90 text-xs sm:text-sm font-medium">
-          <a href="order-study.html" class="hover:text-orange transition-colors font-bold text-amber-300 flex items-center gap-1.5 ${isOrderStudy ? "underline" : ""}">
-            <span class="w-2 h-2 rounded-full bg-amber-400 inline-block animate-pulse"></span>
-            <span>اطلب دراسة جدوى</span>
-          </a>
-          <span class="text-white/30 hidden sm:inline">|</span>
           <a href="faq.html" class="hover:text-orange transition-colors">الأسئلة الشائعة</a>
           <a href="terms.html" class="hover:text-orange transition-colors">شروط الاستخدام</a>
           <a href="privacy-policy.html" class="hover:text-orange transition-colors">سياسة الخصوصية</a>
+          <span class="text-white/30 hidden sm:inline">|</span>
+          <a href="order-study.html" class="hover:text-orange transition-colors ${isOrderStudy ? "underline font-bold" : ""}">اطلب دراسة جدوى</a>
         </div>
 
         <div class="hidden md:flex items-center gap-3.5 text-white/90 text-sm">

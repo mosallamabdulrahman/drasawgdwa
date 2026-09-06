@@ -989,36 +989,28 @@ document.addEventListener("DOMContentLoaded", () => {
   /* --------------------------------------------------------------------------
      10. CONTACT FORM VALIDATION & FEEDBACK
      -------------------------------------------------------------------------- */
-  const contactForm =
-    document.querySelector("form[data-ajax-form]") ||
-    document.getElementById("contactForm");
-  const formMessage =
-    contactForm?.querySelector("[data-form-message]") ||
-    document.getElementById("formSuccessMsg");
+  const contactForms = document.querySelectorAll("form[data-ajax-form]");
+  contactForms.forEach((cForm) => {
+    const formMessage = cForm.querySelector("[data-form-message]");
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
+    cForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      const nameInput =
-        contactForm.querySelector('[name="name"]') ||
-        document.getElementById("formName");
-      const phoneInput =
-        contactForm.querySelector('[name="phone"]') ||
-        document.getElementById("formPhone");
-      const emailInput =
-        contactForm.querySelector('[name="email"]') ||
-        document.getElementById("formEmail");
+      const nameInput = cForm.querySelector('[name="name"]') || cForm.querySelector('[name="applicant_name"]');
+      const phoneInput = cForm.querySelector('[name="phone"]');
+      const emailInput = cForm.querySelector('[name="email"]');
+      const projectInput = cForm.querySelector('[name="project_name"]');
 
       let isValid = true;
       if (nameInput && nameInput.value.trim().length < 2) isValid = false;
       if (emailInput && !emailInput.value.includes("@")) isValid = false;
+      if (phoneInput && phoneInput.value.trim().length < 6) isValid = false;
 
       if (isValid) {
-        contactForm.reset();
+        cForm.reset();
         if (formMessage) {
           formMessage.innerHTML =
-            '<div class="mt-5 p-4 rounded-xl bg-[#287B3F] text-white text-center font-bold text-base shadow-md animate-fade-in">✨ تم إرسال رسالتك بنجاح! سيتواصل معك أحد مستشارينا في أقرب وقت.</div>';
+            '<div class="mt-5 p-4 rounded-xl bg-[#287B3F] text-white text-center font-bold text-base shadow-md animate-fade-in">✨ تم إرسال طلبك بنجاح! سيتواصل معك أحد مستشارينا في أقرب وقت.</div>';
           formMessage.removeAttribute("hidden");
           formMessage.classList.remove("hidden");
           setTimeout(() => {
@@ -1029,7 +1021,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     });
-  }
+  });
 
   /* --------------------------------------------------------------------------
      11. FAQ ACCORDION INTERACTIVITY
