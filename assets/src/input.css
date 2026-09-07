@@ -10,8 +10,14 @@
     @apply border-brand-900 bg-white ring-2 ring-brand-900/15;
   }
 }
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
 body {
   @apply bg-brand-body;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 .dir-ltr {
   direction: ltr;
